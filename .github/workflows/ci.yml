@@ -5,7 +5,6 @@ on:
 
 jobs:
   python-tests:
-    if: github.repository == 'aspain/git-sweaty'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -17,7 +16,6 @@ jobs:
         run: python -m unittest discover -s tests -v
 
   windows-bootstrap-smoke:
-    if: github.repository == 'aspain/git-sweaty'
     runs-on: windows-latest
     timeout-minutes: 5
     steps:
