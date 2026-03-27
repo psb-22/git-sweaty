@@ -27025,5 +27025,18 @@
     "start_date_local": "2026-03-26T06:18:35Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-03-27",
+    "distance": 26231.8,
+    "elevation_gain": 572.0,
+    "id": "17873491038",
+    "moving_time": 4110.0,
+    "name": "ROUVY - RideCymru 2026 | Gospel Pass",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-03-27T06:31:58Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
