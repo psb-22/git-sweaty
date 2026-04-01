@@ -27103,5 +27103,31 @@
     "start_date_local": "2026-03-30T12:38:33Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-01",
+    "distance": 19998.5,
+    "elevation_gain": 54.0,
+    "id": "17938572646",
+    "moving_time": 1765.0,
+    "name": "ROUVY - Ross Barnett to Canton | Mississippi | USA",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-01T16:19:45Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-04-01",
+    "distance": 5431.4,
+    "elevation_gain": 6.0,
+    "id": "17938718365",
+    "moving_time": 424.0,
+    "name": "ROUVY - 7 Minute Cool-down",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-01T16:55:17Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
