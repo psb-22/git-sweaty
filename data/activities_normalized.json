@@ -27129,5 +27129,31 @@
     "start_date_local": "2026-04-01T16:55:17Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-03",
+    "distance": 25474.0,
+    "elevation_gain": 647.0,
+    "id": "17957880632",
+    "moving_time": 4420.0,
+    "name": "ROUVY - RideCymru 2026 | Machynlleth Mountain",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-03T06:47:18Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-04-03",
+    "distance": 5267.9,
+    "elevation_gain": 1.0,
+    "id": "17957930502",
+    "moving_time": 441.0,
+    "name": "ROUVY - 7 Minute Cool-down",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-03T08:04:38Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
