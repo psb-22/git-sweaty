@@ -27155,5 +27155,18 @@
     "start_date_local": "2026-04-03T08:04:38Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-04",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "17970435217",
+    "moving_time": 2349.0,
+    "name": "Rann\u00ed posilov\u00e1n\u00ed",
+    "raw_activity_type": "WeightTraining",
+    "raw_type": "WeightTraining",
+    "start_date_local": "2026-04-04T08:41:45Z",
+    "type": "WeightTraining",
+    "year": 2026
   }
 ]
