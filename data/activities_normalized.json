@@ -27194,5 +27194,44 @@
     "start_date_local": "2026-04-07T12:00:03Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-08",
+    "distance": 22798.9,
+    "elevation_gain": 118.0,
+    "id": "18027858360",
+    "moving_time": 2456.0,
+    "name": "ROUVY - Buffalo Valley | Grand Teton | Wyoming",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-08T15:59:41Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-04-08",
+    "distance": 21834.0,
+    "elevation_gain": 308.0,
+    "id": "18028575122",
+    "moving_time": 2742.0,
+    "name": "ROUVY - Sweden Borlange Lilltorpet",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-08T16:52:08Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-04-08",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "18028727688",
+    "moving_time": 251.0,
+    "name": "Post ride lower body stretch",
+    "raw_activity_type": "Workout",
+    "raw_type": "Workout",
+    "start_date_local": "2026-04-08T17:45:12Z",
+    "type": "Workout",
+    "year": 2026
   }
 ]
