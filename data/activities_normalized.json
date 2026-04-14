@@ -27285,5 +27285,18 @@
     "start_date_local": "2026-04-12T07:25:00Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-14",
+    "distance": 22937.5,
+    "elevation_gain": 263.0,
+    "id": "18102444740",
+    "moving_time": 2699.0,
+    "name": "ROUVY - Active Recovery 3",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-14T11:55:25Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
