@@ -27298,5 +27298,18 @@
     "start_date_local": "2026-04-14T11:55:25Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-15",
+    "distance": 13671.8,
+    "elevation_gain": 167.0,
+    "id": "18113858715",
+    "moving_time": 1756.0,
+    "name": "ROUVY - Alta | Grand Teton | Wyoming",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-15T06:28:49Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
