@@ -6,397 +6,198 @@
   <title>git-sweaty | Activity Heatmaps</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * { box-sizing: border-box; }
-    body { 
-      @apply bg-slate-950 text-slate-100 font-sans;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-    .heatmap-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(12px, 1fr));
-      gap: 2px;
-    }
-    .heatmap-cell {
-      width: 14px;
-      height: 14px;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.2s;
-      border: 1px solid rgba(148, 163, 184, 0.2);
-    }
-    .heatmap-cell:hover {
-      transform: scale(1.2);
-      opacity: 0.8;
-    }
-    .stat-card {
-      @apply bg-slate-900 border border-slate-700 rounded-lg p-4;
-    }
-    .sidebar {
-      @apply lg:w-64 lg:border-r lg:border-slate-700 lg:pr-6;
-    }
-    @media (max-width: 1024px) {
-      .sidebar {
-        @apply border-b border-slate-700 pb-6 mb-6;
-      }
-    }
+    body { background: #0f172a; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .cell { width: 14px; height: 14px; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+    .cell:hover { transform: scale(1.3); opacity: 1 !important; }
   </style>
 </head>
-<body>
-  <div class="min-h-screen flex flex-col lg:flex-row gap-8 p-6 max-w-7xl mx-auto">
-    
-    <!-- SIDEBAR - FILTRY -->
-    <aside class="sidebar">
-      <div class="space-y-6">
-        <!-- Profil -->
-        <div>
-          <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Profile</h2>
-          <div id="profileInfo" class="space-y-1">
-            <p class="text-lg font-semibold text-cyan-400">Loading...</p>
-          </div>
-        </div>
+<body class="p-6">
+  <div class="max-w-6xl mx-auto">
+    <header class="mb-8 pb-6 border-b border-slate-700">
+      <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
+      <p class="text-slate-400">Tvoje tréninková data na jeden pohled</p>
+    </header>
 
-        <!-- Filtr - Roky -->
+    <!-- FILTRY -->
+    <aside class="mb-8 p-4 bg-slate-900 rounded-lg border border-slate-700">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
-          <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Years</h3>
-          <div id="yearFilter" class="space-y-2 flex flex-wrap gap-2">
-            <!-- Tlačítka se generují -->
-          </div>
+          <h3 class="text-sm font-semibold text-slate-300 uppercase mb-3">Roky</h3>
+          <div id="yearFilter" class="flex flex-wrap gap-2"></div>
         </div>
-
-        <!-- Filtr - Typy aktivit -->
         <div>
-          <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Activity Types</h3>
-          <div id="typeFilter" class="space-y-2 max-h-48 overflow-y-auto">
-            <!-- Checkboxy se generují -->
-          </div>
+          <h3 class="text-sm font-semibold text-slate-300 uppercase mb-3">Aktivita</h3>
+          <div id="typeFilter" class="flex flex-wrap gap-2 max-h-32 overflow-y-auto"></div>
         </div>
-
-        <!-- Jednotky -->
         <div>
-          <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Units</h3>
-          <div class="flex gap-2">
-            <button id="unitsMetric" class="flex-1 px-3 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700 text-sm font-medium">
-              km / m
-            </button>
-            <button id="unitsImperial" class="flex-1 px-3 py-2 bg-slate-700 text-slate-300 rounded hover:bg-slate-600 text-sm font-medium">
-              mi / ft
-            </button>
-          </div>
+          <h3 class="text-sm font-semibold text-slate-300 uppercase mb-3">Akce</h3>
+          <button id="resetBtn" class="px-4 py-2 bg-red-900 text-red-100 rounded hover:bg-red-800 text-sm font-medium">
+            Reset
+          </button>
         </div>
-
-        <!-- Reset -->
-        <button id="resetBtn" class="w-full px-4 py-2 bg-red-900 text-red-100 rounded-lg hover:bg-red-800 text-sm font-medium">
-          Reset Filters
-        </button>
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="flex-1 space-y-8">
-      
-      <!-- HEADER -->
-      <div class="border-b border-slate-700 pb-6">
-        <h1 class="text-3xl font-bold text-white mb-2">Activity Heatmaps</h1>
-        <p class="text-slate-400">Your workout patterns at a glance</p>
-      </div>
+    <!-- STATISTIKY -->
+    <div id="statsContainer" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"></div>
 
-      <!-- SUMMARY STATS -->
-      <div id="statsContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <!-- Karty se generují -->
-      </div>
+    <!-- HEATMAPY -->
+    <div id="heatmapsContainer" class="space-y-8"></div>
 
-      <!-- HEATMAPY -->
-      <div id="heatmapsContainer" class="space-y-8">
-        <!-- Roky se generují -->
-      </div>
-
-      <!-- FOOTER -->
-      <footer class="text-center text-sm text-slate-500 py-8 border-t border-slate-700">
-        <p>Powered by <a href="https://github.com/aspain/git-sweaty" target="_blank" class="text-cyan-400 hover:text-cyan-300">git-sweaty</a></p>
-      </footer>
-    </main>
+    <!-- FOOTER -->
+    <footer class="text-center text-sm text-slate-500 py-8 border-t border-slate-700 mt-12">
+      Powered by <a href="https://github.com/aspain/git-sweaty" class="text-cyan-400 hover:text-cyan-300">git-sweaty</a>
+    </footer>
   </div>
 
   <script>
-    // KONFIGURACE
-    const COLORS = {
-      Run: '#ef4444',
-      Ride: '#3b82f6',
-      Walk: '#10b981',
-      Swim: '#06b6d4',
-      WeightTraining: '#f59e0b',
-      VirtualRide: '#8b5cf6',
-      TrailRun: '#ec4899',
-      default: '#6b7280'
-    };
-
-    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
     let allData = {};
-    let filteredData = {};
     let selectedYears = new Set();
     let selectedTypes = new Set();
-    let units = { distance: 'km', elevation: 'm' };
 
-    // LOAD DATA
-    async function loadData() {
-      try {
-        const response = await fetch('data.json');
-        allData = await response.json();
-        
-        // Inicializuj výchozí filtery
-        selectedYears = new Set(Object.keys(allData.activities).map(y => parseInt(y)));
-        selectedTypes = new Set(
-          Object.values(allData.activities)
-            .flatMap(year => Object.values(year))
-            .flatMap(types => Object.keys(types))
-        );
-        
-        renderFilters();
-        filterAndRender();
-      } catch (e) {
-        console.error('Failed to load data:', e);
-        document.getElementById('statsContainer').innerHTML = '<p class="text-red-400">Failed to load data</p>';
-      }
+    async function init() {
+      const res = await fetch('data.json');
+      allData = await res.json();
+      
+      selectedYears = new Set(allData.years);
+      selectedTypes = new Set(allData.types);
+      
+      renderFilters();
+      render();
     }
 
-    // RENDER FILTRY
     function renderFilters() {
-      // Roky
       const yearContainer = document.getElementById('yearFilter');
-      const years = Object.keys(allData.activities || {}).sort((a, b) => b - a);
-      yearContainer.innerHTML = years.map(year => `
-        <button class="year-btn px-3 py-1 bg-slate-800 text-slate-200 rounded hover:bg-slate-700 text-sm ${selectedYears.has(parseInt(year)) ? 'bg-cyan-600 text-white' : ''}"
+      yearContainer.innerHTML = allData.years.map(year => `
+        <button class="year-btn px-3 py-1 rounded text-sm font-medium transition
+          ${selectedYears.has(year) ? 'bg-cyan-600 text-white' : 'bg-slate-700 text-slate-300 hover:bg-slate-600'}"
           data-year="${year}">${year}</button>
       `).join('');
-
+      
       yearContainer.querySelectorAll('.year-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
           const year = parseInt(e.target.dataset.year);
-          if (selectedYears.has(year)) {
-            selectedYears.delete(year);
-          } else {
-            selectedYears.add(year);
-          }
+          selectedYears.has(year) ? selectedYears.delete(year) : selectedYears.add(year);
           renderFilters();
-          filterAndRender();
+          render();
         });
       });
 
-      // Typy aktivit
       const typeContainer = document.getElementById('typeFilter');
-      const allTypes = new Set();
-      Object.values(allData.activities || {}).forEach(year => {
-        Object.values(year).forEach(types => {
-          Object.keys(types).forEach(t => allTypes.add(t));
+      typeContainer.innerHTML = allData.types.map(type => {
+        const color = allData.type_meta[type]?.accent || '#6b7280';
+        return `
+          <button class="type-btn px-2 py-1 rounded text-xs font-medium transition flex items-center gap-1
+            ${selectedTypes.has(type) ? 'bg-slate-700' : 'opacity-50 hover:opacity-75'}"
+            data-type="${type}" style="color: ${color}; border: 1px solid ${color}33;">
+            ● ${type}
+          </button>
+        `;
+      }).join('');
+
+      typeContainer.querySelectorAll('.type-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const type = e.target.closest('.type-btn').dataset.type;
+          selectedTypes.has(type) ? selectedTypes.delete(type) : selectedTypes.add(type);
+          render();
         });
       });
 
-      const sortedTypes = Array.from(allTypes).sort();
-      typeContainer.innerHTML = sortedTypes.map(type => `
-        <label class="flex items-center gap-2 cursor-pointer hover:text-slate-200 text-sm">
-          <input type="checkbox" class="type-checkbox rounded" data-type="${type}" 
-            ${selectedTypes.has(type) ? 'checked' : ''}>
-          <span style="color: ${COLORS[type] || COLORS.default}">●</span>
-          <span>${type}</span>
-        </label>
-      `).join('');
-
-      typeContainer.querySelectorAll('.type-checkbox').forEach(cb => {
-        cb.addEventListener('change', (e) => {
-          const type = e.target.dataset.type;
-          if (e.target.checked) {
-            selectedTypes.add(type);
-          } else {
-            selectedTypes.delete(type);
-          }
-          filterAndRender();
-        });
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        selectedYears = new Set(allData.years);
+        selectedTypes = new Set(allData.types);
+        renderFilters();
+        render();
       });
     }
 
-    // FILTRUJ A RENDER
-    function filterAndRender() {
-      // Filtruj data
-      filteredData = {};
-      Object.entries(allData.activities || {}).forEach(([year, yearData]) => {
-        if (!selectedYears.has(parseInt(year))) return;
-        filteredData[year] = {};
-        Object.entries(yearData).forEach(([week, weekData]) => {
-          const filtered = {};
-          Object.entries(weekData).forEach(([date, types]) => {
-            const validTypes = {};
-            Object.entries(types).forEach(([type, count]) => {
-              if (selectedTypes.has(type)) {
-                validTypes[type] = count;
-              }
-            });
-            if (Object.keys(validTypes).length > 0) {
-              filtered[date] = validTypes;
-            }
-          });
-          if (Object.keys(filtered).length > 0) {
-            filteredData[year][week] = filtered;
-          }
-        });
-      });
-
+    function render() {
       renderStats();
       renderHeatmaps();
     }
 
-    // RENDER STATISTIKY
     function renderStats() {
-      const stats = calculateStats();
-      const container = document.getElementById('statsContainer');
+      const stats = { activities: 0, days: 0, distance: 0, time: 0 };
       
-      const statDefs = [
-        { label: 'Activities', value: stats.activities, unit: '' },
-        { label: 'Active Days', value: stats.activeDays, unit: '' },
-        { label: 'Distance', value: stats.distance.toFixed(0), unit: units.distance },
-        { label: 'Elevation', value: (stats.elevation / (units.elevation === 'ft' ? 1 : 0.3048)).toFixed(0), unit: units.elevation },
-        { label: 'Time', value: formatTime(stats.time), unit: '' },
-        { label: 'Avg/Week', value: stats.avgPerWeek.toFixed(1), unit: 'acts' }
-      ];
-
-      container.innerHTML = statDefs.map(stat => `
-        <div class="stat-card">
-          <p class="text-xs text-slate-500 uppercase tracking-wider">${stat.label}</p>
-          <p class="text-2xl font-bold text-cyan-400 mt-1">${stat.value}</p>
-          ${stat.unit ? `<p class="text-xs text-slate-500 mt-1">${stat.unit}</p>` : ''}
-        </div>
-      `).join('');
-    }
-
-    function calculateStats() {
-      let activities = 0, distance = 0, elevation = 0, time = 0, activeDays = new Set();
-      
-      Object.values(filteredData).forEach(year => {
-        Object.values(year).forEach(week => {
-          Object.entries(week).forEach(([date, types]) => {
-            activities += Object.values(types).reduce((a, b) => a + b, 0);
-            activeDays.add(date);
-          });
-        });
+      allData.activities.forEach(act => {
+        if (selectedYears.has(act.year) && selectedTypes.has(act.type)) {
+          stats.activities++;
+          stats.days = Math.max(stats.days, new Date(act.date).getDate());
+        }
       });
 
-      const stats = allData.statistics || {};
-      if (stats.distance) distance = stats.distance;
-      if (stats.elevation) elevation = stats.elevation;
-      if (stats.time) time = stats.time;
-
-      const weeks = Object.values(filteredData).reduce((sum, year) => sum + Object.keys(year).length, 0) || 1;
-      
-      return {
-        activities,
-        activeDays: activeDays.size,
-        distance: distance * (units.distance === 'km' ? 1 : 0.621371),
-        elevation,
-        time,
-        avgPerWeek: activities / weeks
-      };
+      const container = document.getElementById('statsContainer');
+      container.innerHTML = `
+        <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+          <p class="text-slate-400 text-xs uppercase mb-1">Aktivity</p>
+          <p class="text-3xl font-bold text-cyan-400">${stats.activities}</p>
+        </div>
+        <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+          <p class="text-slate-400 text-xs uppercase mb-1">Aktivní dny</p>
+          <p class="text-3xl font-bold text-cyan-400">${new Set(allData.activities.filter(a => selectedYears.has(a.year) && selectedTypes.has(a.type)).map(a => a.date)).size}</p>
+        </div>
+        <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+          <p class="text-slate-400 text-xs uppercase mb-1">Let</p>
+          <p class="text-3xl font-bold text-cyan-400">${allData.years.filter(y => selectedYears.has(y)).length}</p>
+        </div>
+        <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+          <p class="text-slate-400 text-xs uppercase mb-1">Typů</p>
+          <p class="text-3xl font-bold text-cyan-400">${allData.types.filter(t => selectedTypes.has(t)).length}</p>
+        </div>
+      `;
     }
 
-    function formatTime(seconds = 0) {
-      const hours = Math.floor(seconds / 3600);
-      const mins = Math.floor((seconds % 3600) / 60);
-      return `${hours}h ${mins}m`;
-    }
-
-    // RENDER HEATMAPY
     function renderHeatmaps() {
       const container = document.getElementById('heatmapsContainer');
-      const years = Object.keys(filteredData).sort((a, b) => b - a);
-
+      const years = [...selectedYears].sort((a, b) => b - a);
+      
       if (years.length === 0) {
-        container.innerHTML = '<p class="text-slate-400 text-center py-8">No data matches your filters</p>';
+        container.innerHTML = '<p class="text-slate-400 text-center py-8">Žádná data podle filtrů</p>';
         return;
       }
 
-      container.innerHTML = years.map(year => `
-        <div>
-          <h2 class="text-xl font-bold text-white mb-4">${year}</h2>
-          <div class="space-y-3">
-            ${renderYearHeatmap(year)}
-          </div>
-        </div>
-      `).join('');
-    }
+      container.innerHTML = years.map(year => {
+        const yearAgg = allData.aggregates[year] || {};
+        const yearActivities = allData.activities.filter(a => a.year === year && selectedTypes.has(a.type));
+        
+        const dayMap = {};
+        yearActivities.forEach(act => {
+          if (!dayMap[act.date]) dayMap[act.date] = [];
+          dayMap[act.date].push(act.type);
+        });
 
-    function renderYearHeatmap(year) {
-      const yearData = filteredData[year] || {};
-      const weeks = Object.entries(yearData).sort();
-      
-      return weeks.map(([weekNum, weekData]) => {
-        const dates = Object.entries(weekData);
+        const dates = Object.keys(dayMap).sort();
+        const weeks = {};
+        dates.forEach(date => {
+          const d = new Date(date);
+          const week = Math.ceil(d.getDate() / 7);
+          if (!weeks[week]) weeks[week] = [];
+          weeks[week].push({ date, types: dayMap[date] });
+        });
+
         return `
-          <div class="flex gap-2 items-center">
-            <span class="text-xs text-slate-500 w-8">W${weekNum}</span>
-            <div class="flex gap-1">
-              ${dates.map(([date, types]) => {
-                const typesList = Object.entries(types);
-                const color = typesList.length === 1 
-                  ? COLORS[typesList[0][0]] || COLORS.default
-                  : '#9333ea';
-                const intensity = Math.min(Object.values(types).reduce((a, b) => a + b, 0) / 3, 1);
-                return `
-                  <div class="heatmap-cell" 
-                    style="background-color: ${color}; opacity: ${0.3 + intensity * 0.7}"
-                    title="${date}: ${typesList.map(([t, c]) => t).join(', ')}">
+          <div>
+            <h2 class="text-2xl font-bold text-white mb-4">${year}</h2>
+            <div class="space-y-2">
+              ${Object.keys(weeks).sort((a, b) => a - b).map(week => `
+                <div class="flex gap-2 items-start">
+                  <span class="text-xs text-slate-500 w-12">W${week}</span>
+                  <div class="flex gap-1 flex-wrap">
+                    ${weeks[week].map(day => {
+                      const color = allData.type_meta[day.types[0]]?.accent || '#6b7280';
+                      const opacity = Math.min(0.3 + (day.types.length / 3) * 0.7, 1);
+                      return `<div class="cell" style="background-color: ${color}; opacity: ${opacity}" title="${day.date}: ${day.types.join(', ')}"></div>`;
+                    }).join('')}
                   </div>
-                `;
-              }).join('')}
+                </div>
+              `).join('')}
             </div>
           </div>
         `;
       }).join('');
     }
 
-    // EVENT LISTENERY
-    document.getElementById('unitsMetric').addEventListener('click', () => {
-      units = { distance: 'km', elevation: 'm' };
-      updateUnitsUI();
-      renderStats();
-    });
-
-    document.getElementById('unitsImperial').addEventListener('click', () => {
-      units = { distance: 'mi', elevation: 'ft' };
-      updateUnitsUI();
-      renderStats();
-    });
-
-    function updateUnitsUI() {
-      const metricBtn = document.getElementById('unitsMetric');
-      const imperialBtn = document.getElementById('unitsImperial');
-      if (units.distance === 'km') {
-        metricBtn.classList.add('bg-cyan-600', 'text-white');
-        metricBtn.classList.remove('bg-slate-700', 'text-slate-300');
-        imperialBtn.classList.remove('bg-cyan-600', 'text-white');
-        imperialBtn.classList.add('bg-slate-700', 'text-slate-300');
-      } else {
-        imperialBtn.classList.add('bg-cyan-600', 'text-white');
-        imperialBtn.classList.remove('bg-slate-700', 'text-slate-300');
-        metricBtn.classList.remove('bg-cyan-600', 'text-white');
-        metricBtn.classList.add('bg-slate-700', 'text-slate-300');
-      }
-    }
-
-    document.getElementById('resetBtn').addEventListener('click', () => {
-      selectedYears = new Set(Object.keys(allData.activities).map(y => parseInt(y)));
-      selectedTypes = new Set(
-        Object.values(allData.activities || {})
-          .flatMap(year => Object.values(year))
-          .flatMap(types => Object.keys(types))
-      );
-      units = { distance: 'km', elevation: 'm' };
-      updateUnitsUI();
-      renderFilters();
-      filterAndRender();
-    });
-
-    // START
-    loadData();
+    init();
   </script>
 </body>
 </html>
