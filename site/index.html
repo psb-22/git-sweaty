@@ -15,7 +15,7 @@
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 pb-6 border-b border-slate-700">
       <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
-      <p class="text-slate-400">Tvoje tréninková data na jeden pohled</p>
+      <p class="text-slate-400">Mé aktivity na první dobrou</p>
     </header>
 
     <!-- FILTRY -->
@@ -91,8 +91,8 @@
           <button class="type-btn px-2 py-1 rounded text-xs font-medium transition flex items-center gap-1"
             data-type="${type}" 
             style="${isSelected 
-              ? `background-color: ${color}30; border: 2px solid ${color}; color: ${color};` 
-              : `background-color: transparent; border: 1px solid #475569; color: #64748b;`}">
+              ? `background-color: ${color}40; border: 2px solid ${color}; color: ${color}; font-weight: bold;` 
+              : `background-color: transparent; border: 1px solid #475569; color: #64748b; opacity: 0.5;`}">
             ● ${type}
           </button>
         `;
@@ -102,6 +102,7 @@
         btn.addEventListener('click', (e) => {
           const type = e.target.closest('.type-btn').dataset.type;
           selectedTypes.has(type) ? selectedTypes.delete(type) : selectedTypes.add(type);
+          renderFilters();
           render();
         });
       });
