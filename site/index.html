@@ -19,7 +19,7 @@
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 pb-6 border-b border-slate-700">
       <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
-      <p class="text-slate-400"></p>
+      <p class="text-slate-400">Přehled mých aktivit/p>
     </header>
 
     <!-- FILTRY -->
@@ -156,19 +156,19 @@
       container.innerHTML = `
         <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
           <p class="text-slate-400 text-xs uppercase mb-1">Aktivity</p>
-          <p class="text-3xl font-bold text-cyan-400">${stats.activities}</p>
+          <p class="text-3xl font-bold text-cyan-400">${stats.activities.toLocaleString('cs-CZ')}</p>
         </div>
         <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
           <p class="text-slate-400 text-xs uppercase mb-1">Aktivní dny</p>
-          <p class="text-3xl font-bold text-cyan-400">${new Set(allData.activities.filter(a => selectedYears.has(a.year) && selectedTypes.has(a.type)).map(a => a.date)).size}</p>
+          <p class="text-3xl font-bold text-cyan-400">${new Set(allData.activities.filter(a => selectedYears.has(a.year) && selectedTypes.has(a.type)).map(a => a.date)).size.toLocaleString('cs-CZ')}</p>
         </div>
         <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
           <p class="text-slate-400 text-xs uppercase mb-1">Let</p>
-          <p class="text-3xl font-bold text-cyan-400">${allData.years.filter(y => selectedYears.has(y)).length}</p>
+          <p class="text-3xl font-bold text-cyan-400">${allData.years.filter(y => selectedYears.has(y)).length.toLocaleString('cs-CZ')}</p>
         </div>
         <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
           <p class="text-slate-400 text-xs uppercase mb-1">Typů</p>
-          <p class="text-3xl font-bold text-cyan-400">${allData.types.filter(t => selectedTypes.has(t)).length}</p>
+          <p class="text-3xl font-bold text-cyan-400">${allData.types.filter(t => selectedTypes.has(t)).length.toLocaleString('cs-CZ')}</p>
         </div>
       `;
     }
