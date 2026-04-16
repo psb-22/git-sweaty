@@ -219,6 +219,45 @@
         const distKm = (totalDistance / 1000).toFixed(0);
         const timeHours = (totalTime / 3600).toFixed(0);
 
+        // Cíl pro 2026
+        let goalHtml = '';
+        if (year === 2026) {
+          const goalDist = 8000;
+          const currentDist = totalDistance / 1000;
+          const remaining = goalDist - currentDist;
+          const daysLeft = Math.ceil((new Date(`${year}-12-31`) - new Date()) / (1000 * 60 * 60 * 24));
+          const dailyNeeded = (remaining / daysLeft).toFixed(1);
+          const percentage = Math.min((currentDist / goalDist) * 100, 100).toFixed(1);
+          
+          goalHtml = `
+            <div class="bg-slate-900 p-4 rounded-lg border border-slate-700 mt-6">
+              <p class="text-slate-400 text-xs uppercase mb-3">🎯 Cíl 2026: ${goalDist}km</p>
+              <div class="mb-3">
+                <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+                  <div class="bg-gradient-to-r from-cyan-500 to-green-500 h-full" style="width: ${percentage}%"></div>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-4">
+                <div>
+                  <p class="text-xs text-slate-500 mb-1">Postup</p>
+                  <p class="text-2xl font-bold text-cyan-400">${currentDist.toFixed(0)}<span class="text-xs text-slate-500"> / ${goalDist}</span></p>
+                  <p class="text-xs text-slate-400 mt-1">${percentage}% hotovo</p>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-500 mb-1">Zbývá</p>
+                  <p class="text-2xl font-bold ${remaining > 0 ? 'text-amber-400' : 'text-green-400'}">${remaining.toFixed(0)}km</p>
+                  <p class="text-xs text-slate-400 mt-1">${daysLeft} dní</p>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-500 mb-1">Denní průměr</p>
+                  <p class="text-2xl font-bold text-green-400">${dailyNeeded}km</p>
+                  <p class="text-xs text-slate-400 mt-1">do cíle</p>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
         return `
           <div>
             <div class="flex items-end justify-between mb-6">
@@ -238,6 +277,7 @@
                 </div>
               </div>
             </div>
+            ${goalHtml}
             <div class="space-y-2 mb-8">
               ${sortedMonths.map(month => {
                 const monthIndex = months.indexOf(month);
