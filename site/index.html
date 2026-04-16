@@ -86,10 +86,13 @@
       const typeContainer = document.getElementById('typeFilter');
       typeContainer.innerHTML = allData.types.map(type => {
         const color = allData.type_meta[type]?.accent || '#6b7280';
+        const isSelected = selectedTypes.has(type);
         return `
-          <button class="type-btn px-2 py-1 rounded text-xs font-medium transition flex items-center gap-1
-            ${selectedTypes.has(type) ? 'bg-slate-700' : 'opacity-50 hover:opacity-75'}"
-            data-type="${type}" style="color: ${color}; border: 1px solid ${color}33;">
+          <button class="type-btn px-2 py-1 rounded text-xs font-medium transition flex items-center gap-1"
+            data-type="${type}" 
+            style="${isSelected 
+              ? `background-color: ${color}40; border: 2px solid ${color}; color: ${color};` 
+              : `background-color: transparent; border: 1px solid #475569; color: #94a3b8; opacity: 0.6;`}">
             ● ${type}
           </button>
         `;
