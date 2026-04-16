@@ -19,7 +19,7 @@
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 pb-6 border-b border-slate-700">
       <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
-      <p class="text-slate-400">Přehled mých aktivit</p>
+      <p class="text-slate-400">Tvoje tréninková data na jeden pohled</p>
     </header>
 
     <!-- FILTRY -->
@@ -233,19 +233,19 @@
                       const color = allData.type_meta[day.types[0]]?.accent || '#6b7280';
                       const opacity = Math.min(0.3 + (day.types.length / 3) * 0.7, 1);
                       
-                      // Sebrat všechny activity_ids pro ten den
-                      let allActivityIds = [];
+                      // Sebrat všechny activity_ids pro ten den (bez duplikátů)
+                      let allActivityIds = new Set();
                       day.types.forEach(type => {
                         const dayData = yearAgg[type]?.[day.date];
                         if (dayData?.activity_ids) {
-                          allActivityIds = allActivityIds.concat(dayData.activity_ids);
+                          dayData.activity_ids.forEach(id => allActivityIds.add(id));
                         }
                       });
                       
                       return `<div class="cell" style="background-color: ${color}; opacity: ${opacity}" 
                         title="${day.date}: ${day.types.join(', ')}"
                         data-date="${day.date}"
-                        data-activities="${allActivityIds.join(',')}"
+                        data-activities="${Array.from(allActivityIds).join(',')}"
                         data-types="${day.types.join(',')}"></div>`;
                     }).join('')}
                   </div>
