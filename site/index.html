@@ -19,7 +19,7 @@
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 pb-6 border-b border-slate-700">
       <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
-      <p class="text-slate-400">Tvoje tréninková data na jeden pohled</p>
+      <p class="text-slate-400">Přehled mých aktivit</p>
     </header>
 
     <!-- FILTRY -->
@@ -190,7 +190,7 @@
         });
 
         const dates = Object.keys(dayMap).sort();
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const months = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
         const monthsData = {};
         dates.forEach(date => {
           const d = new Date(date + 'T00:00:00Z');
