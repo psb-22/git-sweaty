@@ -15,7 +15,7 @@
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 pb-6 border-b border-slate-700">
       <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
-      <p class="text-slate-400">Rychlý pohled na přeled mých aktivit</p>
+      <p class="text-slate-400">Tvoje tréninková data na jeden pohled</p>
     </header>
 
     <!-- FILTRY -->
@@ -204,15 +204,17 @@
         });
 
         const dates = Object.keys(dayMap).sort();
-        const weeks = {};
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const monthsData = {};
         dates.forEach(date => {
           const d = new Date(date + 'T00:00:00Z');
-          const firstDay = new Date(d.getFullYear(), 0, 1);
-          const days = Math.floor((d - firstDay) / (24 * 60 * 60 * 1000));
-          const week = Math.ceil((days + firstDay.getDay() + 1) / 7);
-          if (!weeks[week]) weeks[week] = [];
-          weeks[week].push({ date, types: dayMap[date] });
+          const month = months[d.getMonth()];
+          if (!monthsData[month]) monthsData[month] = [];
+          monthsData[month].push({ date, types: dayMap[date] });
         });
+
+        const monthOrder = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const sortedMonths = monthOrder.filter(m => monthsData[m]);
 
         const distKm = (totalDistance / 1000).toFixed(0);
         const timeHours = (totalTime / 3600).toFixed(0);
@@ -237,11 +239,11 @@
               </div>
             </div>
             <div class="space-y-2 mb-8">
-              ${Object.keys(weeks).sort((a, b) => a - b).map(week => `
+              ${sortedMonths.map(month => `
                 <div class="flex gap-2 items-start">
-                  <span class="text-xs text-slate-500 w-12">W${week}</span>
+                  <span class="text-xs text-slate-500 w-12">${month}</span>
                   <div class="flex gap-1 flex-wrap">
-                    ${weeks[week].map(day => {
+                    ${monthsData[month].map(day => {
                       const color = allData.type_meta[day.types[0]]?.accent || '#6b7280';
                       const opacity = Math.min(0.3 + (day.types.length / 3) * 0.7, 1);
                       return `<div class="cell" style="background-color: ${color}; opacity: ${opacity}" title="${day.date}: ${day.types.join(', ')}"></div>`;
