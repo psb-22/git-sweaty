@@ -9,6 +9,10 @@
     body { background: #0f172a; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
     .cell { width: 14px; height: 14px; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
     .cell:hover { transform: scale(1.3); opacity: 1 !important; }
+    .activity-menu { position: fixed; background: #1e293b; border: 1px solid #475569; border-radius: 8px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+    .activity-menu-item { padding: 10px 16px; cursor: pointer; transition: background 0.2s; border-bottom: 1px solid #334155; }
+    .activity-menu-item:last-child { border-bottom: none; }
+    .activity-menu-item:hover { background: #334155; }
   </style>
 </head>
 <body class="p-6">
@@ -168,25 +172,7 @@
         const yearAgg = allData.aggregates[year] || {};
         const yearActivities = allData.activities.filter(a => a.year === year && selectedTypes.has(a.type));
         
-        // Agreguj statistiky za rok
         let totalDistance = 0, totalElevation = 0, totalTime = 0, totalCount = 0;
-        Object.values(yearAgg).forEach(typeData => {
-          Object.values(typeData).forEach(dayData => {
-            if (selectedTypes.has(Object.keys(yearAgg).find(t => yearAgg[t][Object.keys(yearAgg[t])[0]] === dayData))) {
-              totalDistance += dayData.distance || 0;
-              totalElevation += dayData.elevation_gain || 0;
-              totalTime += dayData.moving_time || 0;
-              totalCount += dayData.count || 0;
-            }
-          });
-        });
-
-        // Spočítej z filtrovaných aktivit místo
-        totalDistance = 0;
-        totalElevation = 0;
-        totalTime = 0;
-        totalCount = yearActivities.length;
-        
         Object.entries(yearAgg).forEach(([type, dates]) => {
           if (selectedTypes.has(type)) {
             Object.values(dates).forEach(dayData => {
@@ -246,7 +232,21 @@
                     ${monthsData[month].map(day => {
                       const color = allData.type_meta[day.types[0]]?.accent || '#6b7280';
                       const opacity = Math.min(0.3 + (day.types.length / 3) * 0.7, 1);
-                      return `<div class="cell" style="background-color: ${color}; opacity: ${opacity}" title="${day.date}: ${day.types.join(', ')}"></div>`;
+                      
+                      // Sebrat všechny activity_ids pro ten den
+                      let allActivityIds = [];
+                      day.types.forEach(type => {
+                        const dayData = yearAgg[type]?.[day.date];
+                        if (dayData?.activity_ids) {
+                          allActivityIds = allActivityIds.concat(dayData.activity_ids);
+                        }
+                      });
+                      
+                      return `<div class="cell" style="background-color: ${color}; opacity: ${opacity}" 
+                        title="${day.date}: ${day.types.join(', ')}"
+                        data-date="${day.date}"
+                        data-activities="${allActivityIds.join(',')}"
+                        data-types="${day.types.join(',')}"></div>`;
                     }).join('')}
                   </div>
                 </div>
@@ -255,6 +255,51 @@
           </div>
         `;
       }).join('');
+
+      // Event listenery na čtvereččky
+      setTimeout(() => {
+        document.querySelectorAll('.cell').forEach(cell => {
+          cell.addEventListener('click', (e) => {
+            const activities = cell.dataset.activities.split(',').filter(Boolean);
+            if (activities.length === 0) return;
+            
+            if (activities.length === 1) {
+              window.open(`https://www.strava.com/activities/${activities[0]}`, '_blank');
+            } else {
+              showActivityMenu(e, activities);
+            }
+          });
+        });
+      }, 0);
+    }
+
+    function showActivityMenu(e, activityIds) {
+      // Smaž staré menu
+      const oldMenu = document.querySelector('.activity-menu');
+      if (oldMenu) oldMenu.remove();
+      
+      const menu = document.createElement('div');
+      menu.className = 'activity-menu';
+      menu.style.left = (e.clientX) + 'px';
+      menu.style.top = (e.clientY) + 'px';
+      
+      menu.innerHTML = activityIds.map((id, idx) => `
+        <div class="activity-menu-item" onclick="window.open('https://www.strava.com/activities/${id}', '_blank'); this.closest('.activity-menu').remove();">
+          Aktivita ${idx + 1}
+        </div>
+      `).join('');
+      
+      document.body.appendChild(menu);
+      
+      // Zavřít menu při kliknutí jinde
+      setTimeout(() => {
+        document.addEventListener('click', function closeMenu(e) {
+          if (!e.target.closest('.activity-menu') && !e.target.closest('.cell')) {
+            menu.remove();
+            document.removeEventListener('click', closeMenu);
+          }
+        });
+      }, 0);
     }
 
     init();
