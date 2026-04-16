@@ -19,7 +19,7 @@
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 pb-6 border-b border-slate-700">
       <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
-      <p class="text-slate-400">Rychlý pohled na mé aktivity</p>
+      <p class="text-slate-400">Tvoje tréninková data na jeden pohled</p>
     </header>
 
     <!-- FILTRY -->
@@ -169,7 +169,7 @@
       }
 
       container.innerHTML = years.map(year => {
-        const yearAgg = allData.aggregates[year] || {};
+        const yearAgg = allData.aggregates[String(year)] || {};
         const yearActivities = allData.activities.filter(a => a.year === year && selectedTypes.has(a.type));
         
         let totalDistance = 0, totalElevation = 0, totalTime = 0, totalCount = 0;
@@ -190,7 +190,7 @@
         });
 
         const dates = Object.keys(dayMap).sort();
-        const months = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const monthsData = {};
         dates.forEach(date => {
           const d = new Date(date + 'T00:00:00Z');
@@ -199,7 +199,7 @@
           monthsData[month].push({ date, types: dayMap[date] });
         });
 
-        const monthOrder = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
+        const monthOrder = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const sortedMonths = monthOrder.filter(m => monthsData[m]);
 
         const distKm = (totalDistance / 1000).toFixed(0);
