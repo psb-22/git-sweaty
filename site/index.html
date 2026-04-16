@@ -15,7 +15,7 @@
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 pb-6 border-b border-slate-700">
       <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
-      <p class="text-slate-400">Mé aktivity na první dobrou</p>
+      <p class="text-slate-400">Tvoje tréninková data na jeden pohled</p>
     </header>
 
     <!-- FILTRY -->
@@ -164,6 +164,35 @@
         const yearAgg = allData.aggregates[year] || {};
         const yearActivities = allData.activities.filter(a => a.year === year && selectedTypes.has(a.type));
         
+        // Agreguj statistiky za rok
+        let totalDistance = 0, totalElevation = 0, totalTime = 0, totalCount = 0;
+        Object.values(yearAgg).forEach(typeData => {
+          Object.values(typeData).forEach(dayData => {
+            if (selectedTypes.has(Object.keys(yearAgg).find(t => yearAgg[t][Object.keys(yearAgg[t])[0]] === dayData))) {
+              totalDistance += dayData.distance || 0;
+              totalElevation += dayData.elevation_gain || 0;
+              totalTime += dayData.moving_time || 0;
+              totalCount += dayData.count || 0;
+            }
+          });
+        });
+
+        // Spočítej z filtrovaných aktivit místo
+        totalDistance = 0;
+        totalElevation = 0;
+        totalTime = 0;
+        totalCount = yearActivities.length;
+        
+        Object.entries(yearAgg).forEach(([type, dates]) => {
+          if (selectedTypes.has(type)) {
+            Object.values(dates).forEach(dayData => {
+              totalDistance += dayData.distance || 0;
+              totalElevation += dayData.elevation_gain || 0;
+              totalTime += dayData.moving_time || 0;
+            });
+          }
+        });
+
         const dayMap = {};
         yearActivities.forEach(act => {
           if (!dayMap[act.date]) dayMap[act.date] = [];
@@ -179,10 +208,29 @@
           weeks[week].push({ date, types: dayMap[date] });
         });
 
+        const distKm = (totalDistance / 1000).toFixed(0);
+        const timeHours = (totalTime / 3600).toFixed(0);
+
         return `
           <div>
-            <h2 class="text-2xl font-bold text-white mb-4">${year}</h2>
-            <div class="space-y-2">
+            <div class="flex items-end justify-between mb-6">
+              <h2 class="text-2xl font-bold text-white">${year}</h2>
+              <div class="flex gap-6 text-right">
+                <div>
+                  <p class="text-xs text-slate-500 uppercase mb-1">🏔️ Výška</p>
+                  <p class="text-2xl font-bold text-amber-400">${(totalElevation / 1000).toFixed(1)}km</p>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-500 uppercase mb-1">📍 Vzdálenost</p>
+                  <p class="text-2xl font-bold text-cyan-400">${distKm}km</p>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-500 uppercase mb-1">⏱️ Čas</p>
+                  <p class="text-2xl font-bold text-green-400">${timeHours}h</p>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-2 mb-8">
               ${Object.keys(weeks).sort((a, b) => a - b).map(week => `
                 <div class="flex gap-2 items-start">
                   <span class="text-xs text-slate-500 w-12">W${week}</span>
