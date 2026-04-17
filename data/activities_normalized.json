@@ -27324,5 +27324,18 @@
     "start_date_local": "2026-04-16T06:39:24Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-17",
+    "distance": 2431.5,
+    "elevation_gain": 49.7,
+    "id": "18146862748",
+    "moving_time": 2028.0,
+    "name": "Friday Evening Walk",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-04-17T17:37:19Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
