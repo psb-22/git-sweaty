@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Activity Heatmaps</title>
+  <title>Přehled mých aktivit</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { background: #0f172a; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
@@ -19,7 +19,7 @@
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 pb-6 border-b border-slate-700">
       <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
-     <p class="text-slate-400">Přehled mých aktivit</p>
+      <p class="text-slate-400">Přehled mých aktivit</p>
     </header>
 
     <!-- FILTRY -->
@@ -229,6 +229,15 @@
           const dailyNeeded = (remaining / daysLeft).toFixed(1);
           const percentage = Math.min((currentDist / goalDist) * 100, 100).toFixed(1);
           
+          // Průběžný cíl - kolik bys měl mít dneska
+          const yearStart = new Date(`${year}-01-01`);
+          const today = new Date();
+          const daysElapsed = Math.floor((today - yearStart) / (1000 * 60 * 60 * 24)) + 1;
+          const dailyAverage = (goalDist / 365).toFixed(1);
+          const shouldHave = (daysElapsed * parseFloat(dailyAverage)).toFixed(0);
+          const progressDiff = currentDist - shouldHave;
+          const progressDiffColor = progressDiff >= 0 ? 'text-green-400' : 'text-red-400';
+          
           goalHtml = `
             <div class="bg-slate-900 p-4 rounded-lg border border-slate-700 mt-6 mb-8">
               <p class="text-slate-400 text-xs uppercase mb-3">🎯 Cíl 2026: ${goalDist.toLocaleString('cs-CZ')}km</p>
@@ -237,7 +246,7 @@
                   <div class="bg-gradient-to-r from-cyan-500 to-green-500 h-full" style="width: ${percentage}%"></div>
                 </div>
               </div>
-              <div class="grid grid-cols-3 gap-4">
+              <div class="grid grid-cols-3 gap-4 mb-4">
                 <div>
                   <p class="text-xs text-slate-500 mb-1">Postup</p>
                   <p class="text-2xl font-bold text-cyan-400">${parseInt(currentDist).toLocaleString('cs-CZ')}<span class="text-xs text-slate-500"> / ${goalDist.toLocaleString('cs-CZ')}</span></p>
@@ -252,6 +261,21 @@
                   <p class="text-xs text-slate-500 mb-1">Denní průměr</p>
                   <p class="text-2xl font-bold text-green-400">${dailyNeeded}km</p>
                   <p class="text-xs text-slate-400 mt-1">do cíle</p>
+                </div>
+              </div>
+              
+              <div class="border-t border-slate-700 pt-4">
+                <p class="text-xs text-slate-500 mb-3 uppercase">Průběžný cíl (dneska)</p>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-xs text-slate-500 mb-1">Měl bys mít</p>
+                    <p class="text-lg font-bold text-cyan-400">${parseInt(shouldHave).toLocaleString('cs-CZ')}km</p>
+                  </div>
+                  <div>
+                    <p class="text-xs text-slate-500 mb-1">Máš</p>
+                    <p class="text-lg font-bold ${progressDiffColor}">${parseInt(currentDist).toLocaleString('cs-CZ')}km</p>
+                    <p class="text-xs ${progressDiffColor} mt-1">${progressDiff >= 0 ? '+' : ''}${parseInt(progressDiff).toLocaleString('cs-CZ')}km</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -278,62 +302,79 @@
               </div>
             </div>
             ${goalHtml}
-            <div class="space-y-2 mb-8">
-              ${sortedMonths.map(month => {
-                const monthIndex = months.indexOf(month);
-                const daysInMonth = showAllDays ? new Date(year, monthIndex + 1, 0).getDate() : undefined;
-                const cellsHtml = [];
-                
-                if (showAllDays) {
-                  // Všechny dny v měsíci
-                  for (let day = 1; day <= daysInMonth; day++) {
-                    const dateStr = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                    const dayData = dayMap[dateStr];
-                    
-                    if (dayData) {
-                      const color = allData.type_meta[dayData[0]]?.accent || '#6b7280';
-                      const opacity = Math.min(0.3 + (dayData.length / 3) * 0.7, 1);
-                      let allActivityIds = new Set();
-                      dayData.forEach(type => {
-                        const agg = yearAgg[type]?.[dateStr];
-                        if (agg?.activity_ids) {
-                          agg.activity_ids.forEach(id => allActivityIds.add(id));
-                        }
-                      });
-                      cellsHtml.push(`<div class="cell" style="background-color: ${color}; opacity: ${opacity}" 
-                        title="${dateStr}: ${dayData.join(', ')}"
-                        data-date="${dateStr}"
-                        data-activities="${Array.from(allActivityIds).join(',')}"
-                        data-types="${dayData.join(',')}"></div>`);
-                    } else {
-                      cellsHtml.push(`<div class="cell" style="background-color: #4b5563; opacity: 0.2"></div>`);
-                    }
-                  }
-                } else {
-                  // Jen dny s aktivitou
-                  monthsData[month].forEach(day => {
-                    const color = allData.type_meta[day.types[0]]?.accent || '#6b7280';
-                    const opacity = Math.min(0.3 + (day.types.length / 3) * 0.7, 1);
-                    let allActivityIds = new Set();
-                    day.types.forEach(type => {
-                      const agg = yearAgg[type]?.[day.date];
-                      if (agg?.activity_ids) {
-                        agg.activity_ids.forEach(id => allActivityIds.add(id));
-                      }
-                    });
-                    cellsHtml.push(`<div class="cell" style="background-color: ${color}; opacity: ${opacity}" 
-                      title="${day.date}: ${day.types.join(', ')}"
-                      data-date="${day.date}"
-                      data-activities="${Array.from(allActivityIds).join(',')}"
-                      data-types="${day.types.join(',')}"></div>`);
-                  });
-                }
-                
+            <div class="space-y-1 mb-8">
+              <!-- Header s měsíci -->
+              <div class="flex gap-2 items-start">
+                <span class="text-xs text-slate-500 w-20"></span>
+                <div class="flex gap-4">
+                  ${sortedMonths.map(month => `<span class="text-xs text-slate-500 w-16 text-center">${month}</span>`).join('')}
+                </div>
+              </div>
+              
+              <!-- Řádky pro dny v týdnu -->
+              ${['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle'].map(dayName => {
+                const dayIndex = ['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle'].indexOf(dayName);
                 return `
                   <div class="flex gap-2 items-start">
-                    <span class="text-xs text-slate-500 w-20">${month}</span>
-                    <div class="flex gap-1 flex-wrap">
-                      ${cellsHtml.join('')}
+                    <span class="text-xs text-slate-500 w-20">${dayName}</span>
+                    <div class="flex gap-4">
+                      ${sortedMonths.map(month => {
+                        const monthIndex = months.indexOf(month);
+                        const cellsHtml = [];
+                        
+                        // Pro daný měsíc a den v týdnu
+                        if (showAllDays) {
+                          const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+                          for (let day = 1; day <= daysInMonth; day++) {
+                            const dateObj = new Date(year, monthIndex, day);
+                            if (dateObj.getDay() === (dayIndex + 1) % 7) { // Adjust for Sunday = 0
+                              const dateStr = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                              const dayData = dayMap[dateStr];
+                              if (dayData) {
+                                const color = allData.type_meta[dayData[0]]?.accent || '#6b7280';
+                                const opacity = Math.min(0.3 + (dayData.length / 3) * 0.7, 1);
+                                let allActivityIds = new Set();
+                                dayData.forEach(type => {
+                                  const agg = yearAgg[type]?.[dateStr];
+                                  if (agg?.activity_ids) {
+                                    agg.activity_ids.forEach(id => allActivityIds.add(id));
+                                  }
+                                });
+                                cellsHtml.push(`<div class="cell" style="background-color: ${color}; opacity: ${opacity}" 
+                                  title="${dateStr}: ${dayData.join(', ')}"
+                                  data-date="${dateStr}"
+                                  data-activities="${Array.from(allActivityIds).join(',')}"
+                                  data-types="${dayData.join(',')}"></div>`);
+                              } else {
+                                cellsHtml.push(`<div class="cell" style="background-color: #4b5563; opacity: 0.2"></div>`);
+                              }
+                            }
+                          }
+                        } else {
+                          // Jen dny s aktivitou
+                          (monthsData[month] || []).forEach(day => {
+                            const dateObj = new Date(day.date + 'T00:00:00Z');
+                            if (dateObj.getDay() === (dayIndex + 1) % 7) {
+                              const color = allData.type_meta[day.types[0]]?.accent || '#6b7280';
+                              const opacity = Math.min(0.3 + (day.types.length / 3) * 0.7, 1);
+                              let allActivityIds = new Set();
+                              day.types.forEach(type => {
+                                const agg = yearAgg[type]?.[day.date];
+                                if (agg?.activity_ids) {
+                                  agg.activity_ids.forEach(id => allActivityIds.add(id));
+                                }
+                              });
+                              cellsHtml.push(`<div class="cell" style="background-color: ${color}; opacity: ${opacity}" 
+                                title="${day.date}: ${day.types.join(', ')}"
+                                data-date="${day.date}"
+                                data-activities="${Array.from(allActivityIds).join(',')}"
+                                data-types="${day.types.join(',')}"></div>`);
+                            }
+                          });
+                        }
+                        
+                        return `<div class="flex gap-0.5">${cellsHtml.join('')}</div>`;
+                      }).join('')}
                     </div>
                   </div>
                 `;
