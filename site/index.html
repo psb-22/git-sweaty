@@ -19,7 +19,7 @@
   <div class="max-w-6xl mx-auto">
     <header class="mb-8 pb-6 border-b border-teal-700">
       <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
-      <p class="text-slate-300">Přehled mých aktivit</p>
+      <p class="text-slate-200">Přehled mých aktivit</p>
     </header>
 
     <!-- FILTRY -->
@@ -54,7 +54,7 @@
     <div id="heatmapsContainer" class="space-y-8"></div>
 
     <!-- FOOTER -->
-    <footer class="text-center text-sm text-slate-400 py-8 border-t border-teal-700 mt-12">
+    <footer class="text-center text-sm text-slate-100 py-8 border-t border-teal-700 mt-12">
       Powered by <a href="https://github.com/aspain/git-sweaty" class="text-cyan-400 hover:text-cyan-300">git-sweaty</a>
     </footer>
   </div>
@@ -155,19 +155,19 @@
       const container = document.getElementById('statsContainer');
       container.innerHTML = `
         <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
-          <p class="text-slate-300 text-xs uppercase mb-1">Aktivity</p>
+          <p class="text-slate-200 text-xs uppercase mb-1">Aktivity</p>
           <p class="text-3xl font-bold text-cyan-400">${stats.activities.toLocaleString('cs-CZ')}</p>
         </div>
         <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
-          <p class="text-slate-300 text-xs uppercase mb-1">Aktivní dny</p>
+          <p class="text-slate-200 text-xs uppercase mb-1">Aktivní dny</p>
           <p class="text-3xl font-bold text-cyan-400">${new Set(allData.activities.filter(a => selectedYears.has(a.year) && selectedTypes.has(a.type)).map(a => a.date)).size.toLocaleString('cs-CZ')}</p>
         </div>
         <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
-          <p class="text-slate-300 text-xs uppercase mb-1">Let</p>
+          <p class="text-slate-200 text-xs uppercase mb-1">Let</p>
           <p class="text-3xl font-bold text-cyan-400">${allData.years.filter(y => selectedYears.has(y)).length.toLocaleString('cs-CZ')}</p>
         </div>
         <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
-          <p class="text-slate-300 text-xs uppercase mb-1">Typů</p>
+          <p class="text-slate-200 text-xs uppercase mb-1">Typů</p>
           <p class="text-3xl font-bold text-cyan-400">${allData.types.filter(t => selectedTypes.has(t)).length.toLocaleString('cs-CZ')}</p>
         </div>
       `;
@@ -178,7 +178,7 @@
       const years = [...selectedYears].sort((a, b) => b - a);
       
       if (years.length === 0) {
-        container.innerHTML = '<p class="text-slate-300 text-center py-8">Žádná data podle filtrů</p>';
+        container.innerHTML = '<p class="text-slate-200 text-center py-8">Žádná data podle filtrů</p>';
         return;
       }
 
@@ -240,7 +240,7 @@
           
           goalHtml = `
             <div class="bg-teal-900 p-4 rounded-lg border border-teal-700 mt-6 mb-8">
-              <p class="text-slate-300 text-xs uppercase mb-3">🎯 Cíl 2026: ${goalDist.toLocaleString('cs-CZ')}km</p>
+              <p class="text-slate-200 text-xs uppercase mb-3">🎯 Cíl 2026: ${goalDist.toLocaleString('cs-CZ')}km</p>
               <div class="mb-3">
                 <div class="w-full bg-teal-800 rounded-full h-3 overflow-hidden">
                   <div class="bg-gradient-to-r from-cyan-500 to-green-500 h-full" style="width: ${percentage}%"></div>
@@ -248,31 +248,31 @@
               </div>
               <div class="grid grid-cols-3 gap-4 mb-4">
                 <div>
-                  <p class="text-xs text-slate-400 mb-1">Postup</p>
-                  <p class="text-2xl font-bold text-cyan-400">${parseInt(currentDist).toLocaleString('cs-CZ')}<span class="text-xs text-slate-400"> / ${goalDist.toLocaleString('cs-CZ')}</span></p>
-                  <p class="text-xs text-slate-300 mt-1">${percentage}% hotovo</p>
+                  <p class="text-xs text-slate-100 mb-1">Postup</p>
+                  <p class="text-2xl font-bold text-cyan-400">${parseInt(currentDist).toLocaleString('cs-CZ')}<span class="text-xs text-slate-100"> / ${goalDist.toLocaleString('cs-CZ')}</span></p>
+                  <p class="text-xs text-slate-200 mt-1">${percentage}% hotovo</p>
                 </div>
                 <div>
-                  <p class="text-xs text-slate-400 mb-1">Zbývá</p>
+                  <p class="text-xs text-slate-100 mb-1">Zbývá</p>
                   <p class="text-2xl font-bold ${remaining > 0 ? 'text-amber-400' : 'text-green-400'}">${parseInt(remaining).toLocaleString('cs-CZ')}km</p>
-                  <p class="text-xs text-slate-300 mt-1">${daysLeft} dní</p>
+                  <p class="text-xs text-slate-200 mt-1">${daysLeft} dní</p>
                 </div>
                 <div>
-                  <p class="text-xs text-slate-400 mb-1">Denní průměr</p>
+                  <p class="text-xs text-slate-100 mb-1">Denní průměr</p>
                   <p class="text-2xl font-bold text-green-400">${dailyNeeded}km</p>
-                  <p class="text-xs text-slate-300 mt-1">do cíle</p>
+                  <p class="text-xs text-slate-200 mt-1">do cíle</p>
                 </div>
               </div>
               
               <div class="border-t border-teal-700 pt-4">
-                <p class="text-xs text-slate-400 mb-3 uppercase">Průběžný cíl (dneska)</p>
+                <p class="text-xs text-slate-100 mb-3 uppercase">Průběžný cíl (dneska)</p>
                 <div class="grid grid-cols-2 gap-4">
                   <div>
-                    <p class="text-xs text-slate-400 mb-1">Měl bys mít</p>
+                    <p class="text-xs text-slate-100 mb-1">Měl bys mít</p>
                     <p class="text-lg font-bold text-cyan-400">${parseInt(shouldHave).toLocaleString('cs-CZ')}km</p>
                   </div>
                   <div>
-                    <p class="text-xs text-slate-400 mb-1">Máš</p>
+                    <p class="text-xs text-slate-100 mb-1">Máš</p>
                     <p class="text-lg font-bold ${progressDiffColor}">${parseInt(currentDist).toLocaleString('cs-CZ')}km</p>
                     <p class="text-xs ${progressDiffColor} mt-1">${progressDiff >= 0 ? '+' : ''}${parseInt(progressDiff).toLocaleString('cs-CZ')}km</p>
                   </div>
@@ -288,15 +288,20 @@
               <h2 class="text-2xl font-bold text-white">${year}</h2>
               <div class="flex gap-6 text-right">
                 <div>
-                  <p class="text-xs text-slate-400 uppercase mb-1">🏔️ Výška</p>
+                  <p class="text-xs text-slate-100 uppercase mb-1">📅 Aktivní dny</p>
+                  <p class="text-2xl font-bold text-cyan-400">${new Set(yearActivities.map(a => a.date)).size.toLocaleString('cs-CZ')}</p>
+                  <p class="text-xs text-slate-200 mt-1">${((new Set(yearActivities.map(a => a.date)).size / 365) * 100).toFixed(1)}% roku</p>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-100 uppercase mb-1">🏔️ Výška</p>
                   <p class="text-2xl font-bold text-amber-400">${(totalElevation / 1000).toFixed(1).replace('.', ',')}</p>
                 </div>
                 <div>
-                  <p class="text-xs text-slate-400 uppercase mb-1">📍 Vzdálenost</p>
+                  <p class="text-xs text-slate-100 uppercase mb-1">📍 Vzdálenost</p>
                   <p class="text-2xl font-bold text-cyan-400">${parseInt(distKm).toLocaleString('cs-CZ')}km</p>
                 </div>
                 <div>
-                  <p class="text-xs text-slate-400 uppercase mb-1">⏱️ Čas</p>
+                  <p class="text-xs text-slate-100 uppercase mb-1">⏱️ Čas</p>
                   <p class="text-2xl font-bold text-green-400">${parseInt(timeHours).toLocaleString('cs-CZ')}h</p>
                 </div>
               </div>
@@ -305,9 +310,9 @@
             <div class="space-y-1 mb-8">
               <!-- Header s měsíci -->
               <div class="flex gap-2 items-start">
-                <span class="text-xs text-slate-400 w-20"></span>
+                <span class="text-xs text-slate-100 w-20"></span>
                 <div class="flex gap-4">
-                  ${sortedMonths.map(month => `<span class="text-xs text-slate-400 w-16 text-center">${month}</span>`).join('')}
+                  ${sortedMonths.map(month => `<span class="text-xs text-slate-100 w-16 text-center">${month}</span>`).join('')}
                 </div>
               </div>
               
@@ -316,7 +321,7 @@
                 const dayIndex = ['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle'].indexOf(dayName);
                 return `
                   <div class="flex gap-2 items-start">
-                    <span class="text-xs text-slate-400 w-20">${dayName}</span>
+                    <span class="text-xs text-slate-100 w-20">${dayName}</span>
                     <div class="flex gap-4">
                       ${sortedMonths.map(month => {
                         const monthIndex = months.indexOf(month);
