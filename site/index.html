@@ -226,14 +226,14 @@
           const currentDist = totalDistance / 1000;
           const remaining = goalDist - currentDist;
           const daysLeft = Math.ceil((new Date(`${year}-12-31`) - new Date()) / (1000 * 60 * 60 * 24));
-          const dailyNeeded = (remaining / daysLeft).toFixed(1);
-          const percentage = Math.min((currentDist / goalDist) * 100, 100).toFixed(1);
+          const dailyNeeded = (remaining / daysLeft).toFixed(0);
+          const percentage = Math.min((currentDist / goalDist) * 100, 100).toFixed(0);
           
           // Průběžný cíl - kolik bys měl mít dneska
           const yearStart = new Date(`${year}-01-01`);
           const today = new Date();
           const daysElapsed = Math.floor((today - yearStart) / (1000 * 60 * 60 * 24)) + 1;
-          const dailyAverage = (goalDist / 365).toFixed(1);
+          const dailyAverage = (goalDist / 365).toFixed(0);
           const shouldHave = (daysElapsed * parseFloat(dailyAverage)).toFixed(0);
           const progressDiff = currentDist - shouldHave;
           const progressDiffColor = progressDiff >= 0 ? 'text-green-400' : 'text-red-400';
@@ -290,7 +290,7 @@
                 <div>
                   <p class="text-xs text-slate-100 uppercase mb-1">📅 Aktivní dny</p>
                   <p class="text-xl font-bold text-cyan-400">${new Set(yearActivities.map(a => a.date)).size.toLocaleString('cs-CZ')}</p>
-                  ${year === new Date().getFullYear() ? '<p class="text-xs text-slate-200 mt-1">' + (((new Set(yearActivities.map(a => a.date)).size / (Math.floor((new Date() - new Date(year + '-01-01')) / (1000 * 60 * 60 * 24)) + 1)) * 100).toFixed(1)) + '% k dnešku</p>' : '<p class="text-xs text-slate-200 mt-1">' + (((new Set(yearActivities.map(a => a.date)).size / 365) * 100).toFixed(1)) + '% roku</p>'}
+                  ${year === new Date().getFullYear() ? '<p class="text-xs text-slate-200 mt-1">' + (((new Set(yearActivities.map(a => a.date)).size / (Math.floor((new Date() - new Date(year + '-01-01')) / (1000 * 60 * 60 * 24)) + 1)) * 100).toFixed(0)) + '% k dnešku</p>' : '<p class="text-xs text-slate-200 mt-1">' + (((new Set(yearActivities.map(a => a.date)).size / 365) * 100).toFixed(0)) + '% roku</p>'}
                 </div>
               </div>
               <div class="flex gap-6 text-right">
