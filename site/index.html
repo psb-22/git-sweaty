@@ -153,6 +153,18 @@
       });
 
       const container = document.getElementById('statsContainer');
+      
+      // Spočítej celkové km
+      let totalKm = 0;
+      allData.activities.forEach(act => {
+        if (selectedYears.has(act.year) && selectedTypes.has(act.type)) {
+          const agg = allData.aggregates[String(act.year)]?.[act.type]?.[act.date];
+          if (agg?.distance) {
+            totalKm += agg.distance;
+          }
+        }
+      });
+      
       container.innerHTML = `
         <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
           <p class="text-slate-200 text-xs uppercase mb-1">Aktivity</p>
@@ -169,6 +181,10 @@
         <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
           <p class="text-slate-200 text-xs uppercase mb-1">Typů</p>
           <p class="text-3xl font-bold text-cyan-400">${allData.types.filter(t => selectedTypes.has(t)).length.toLocaleString('cs-CZ')}</p>
+        </div>
+        <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
+          <p class="text-slate-200 text-xs uppercase mb-1">Km</p>
+          <p class="text-3xl font-bold text-cyan-400">${Math.round(totalKm / 1000).toLocaleString('cs-CZ')}</p>
         </div>
       `;
     }
@@ -268,11 +284,11 @@
                 <p class="text-xs text-slate-100 mb-3 uppercase">Průběžný cíl (dneska)</p>
                 <div class="grid grid-cols-2 gap-4">
                   <div>
-                    <p class="text-xs text-slate-100 mb-1">Měl bys mít</p>
+                    <p class="text-xs text-slate-100 mb-1">Měl bych mít</p>
                     <p class="text-lg font-bold text-cyan-400">${parseInt(shouldHave).toLocaleString('cs-CZ')}km</p>
                   </div>
                   <div>
-                    <p class="text-xs text-slate-100 mb-1">Máš</p>
+                    <p class="text-xs text-slate-100 mb-1">Mám</p>
                     <p class="text-lg font-bold ${progressDiffColor}">${parseInt(currentDist).toLocaleString('cs-CZ')}km</p>
                     <p class="text-xs ${progressDiffColor} mt-1">${progressDiff >= 0 ? '+' : ''}${parseInt(progressDiff).toLocaleString('cs-CZ')}km</p>
                   </div>
