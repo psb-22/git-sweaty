@@ -27350,5 +27350,31 @@
     "start_date_local": "2026-04-18T10:43:30Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-04-20",
+    "distance": 15379.1,
+    "elevation_gain": 38.0,
+    "id": "18179886810",
+    "moving_time": 1537.0,
+    "name": "ROUVY - La Vuelta 2022 | Stage 1 - Utrecht | NL",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-20T06:43:25Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-04-20",
+    "distance": 17208.7,
+    "elevation_gain": 57.0,
+    "id": "18180051052",
+    "moving_time": 1443.0,
+    "name": "ROUVY - Pacentro IT \u00aemky",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-20T07:19:37Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
