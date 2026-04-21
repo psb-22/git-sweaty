@@ -19,7 +19,8 @@
       .type-btn { min-width: 90px; text-align: center; justify-content: center; }
       .progress-bar-inner { transition: width 1s ease; }
       .heatmap-legend { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #94a3b8; }
-      .bar-chart-bar { transition: height 0.5s ease; }
+      .chart-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; flex: 1; height: 100%; }
+      .chart-bar { width: 100%; border-radius: 3px 3px 0 0; min-height: 2px; }
       @media (max-width: 768px) { .cell { width: 12px; height: 12px; } }
     </style>
   </head>
@@ -30,7 +31,7 @@
           <h1 class="text-4xl font-bold text-white mb-2">Activity Heatmaps</h1>
           <p class="text-slate-200">Přehled mých aktivit</p>
         </div>
-        <div id="everestBadge" class="bg-teal-900 border border-teal-700 rounded-lg px-4 py-3 text-right">
+        <div class="bg-teal-900 border border-teal-700 rounded-lg px-4 py-3 text-right">
           <p class="text-xs text-slate-300 uppercase mb-1">🏔️ Celkové převýšení</p>
           <p class="text-2xl font-bold text-amber-400" id="totalElevAll">—</p>
           <p class="text-xs text-slate-400" id="everestCount">— výstupů na Everest</p>
@@ -53,12 +54,11 @@
               <button id="toggleDaysBtn" class="px-4 py-2 bg-teal-700 text-slate-200 rounded-lg hover:bg-teal-600 text-sm font-medium transition">Všechny dny</button>
               <button id="resetBtn" class="px-4 py-2 bg-red-900 text-red-100 rounded-lg hover:bg-red-800 text-sm font-medium transition">Reset</button>
             </div>
-            <!-- LEGENDA -->
             <div class="mt-4 pt-3 border-t border-teal-700">
               <p class="text-xs text-slate-400 uppercase mb-2">Legenda intenzity</p>
               <div class="heatmap-legend">
                 <span class="text-xs">méně</span>
-                <div class="cell" style="background:#6b7280;opacity:0.2;cursor:default;"></div>
+                <div class="cell" style="background:#4b5563;opacity:0.15;cursor:default;"></div>
                 <div class="cell" style="background:#22d3ee;opacity:0.4;cursor:default;"></div>
                 <div class="cell" style="background:#22d3ee;opacity:0.6;cursor:default;"></div>
                 <div class="cell" style="background:#22d3ee;opacity:0.8;cursor:default;"></div>
@@ -73,20 +73,20 @@
       <!-- CELKOVÉ STATISTIKY -->
       <div id="statsContainer" class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8"></div>
 
-      <!-- NOVÉ METRIKY: STREAK + SROVNÁNÍ + PRŮMĚRY -->
+      <!-- NOVÉ METRIKY -->
       <div id="extraMetrics" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"></div>
 
-      <!-- GRAFY: Měsíční rozložení + Den v týdnu -->
+      <!-- GRAFY -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div class="bg-teal-900 rounded-xl border border-teal-700 p-4">
           <h3 class="text-sm font-semibold text-slate-200 uppercase mb-4">📅 Aktivní dny dle měsíce (celkem)</h3>
-          <div id="monthBarChart" class="flex items-end gap-1 h-24 justify-between"></div>
-          <div id="monthLabels" class="flex gap-1 justify-between mt-1"></div>
+          <div id="monthBarChart" style="height:96px;display:flex;align-items:flex-end;gap:4px;"></div>
+          <div id="monthLabels" style="display:flex;gap:4px;margin-top:4px;"></div>
         </div>
         <div class="bg-teal-900 rounded-xl border border-teal-700 p-4">
           <h3 class="text-sm font-semibold text-slate-200 uppercase mb-4">📆 Aktivní dny dle dne v týdnu</h3>
-          <div id="weekdayBarChart" class="flex items-end gap-2 h-24 justify-between"></div>
-          <div id="weekdayLabels" class="flex gap-2 justify-between mt-1"></div>
+          <div id="weekdayBarChart" style="height:96px;display:flex;align-items:flex-end;gap:4px;"></div>
+          <div id="weekdayLabels" style="display:flex;gap:4px;margin-top:4px;"></div>
         </div>
       </div>
 
@@ -122,7 +122,7 @@ function renderEverestBadge() {
     if (agg) totalElev += agg.elevation_gain || 0;
   });
   const everest = 8849;
-  document.getElementById('totalElevAll').textContent = Math.round(totalElev/1000).toLocaleString('cs-CZ') + ' km';
+  document.getElementById('totalElevAll').textContent = Math.round(totalElev / 1000).toLocaleString('cs-CZ') + ' km';
   document.getElementById('everestCount').textContent = (totalElev / everest).toFixed(1) + ' výstupů na Everest';
 }
 
@@ -135,8 +135,7 @@ function renderFilters() {
     btn.addEventListener('click', () => {
       const year = parseInt(btn.dataset.year);
       selectedYears.has(year) ? selectedYears.delete(year) : selectedYears.add(year);
-      renderFilters();
-      render();
+      renderFilters(); render();
     });
   });
 
@@ -150,25 +149,23 @@ function renderFilters() {
     btn.addEventListener('click', () => {
       const type = btn.closest('.type-btn').dataset.type;
       selectedTypes.has(type) ? selectedTypes.delete(type) : selectedTypes.add(type);
-      renderFilters();
-      render();
+      renderFilters(); render();
     });
   });
 
-  document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('resetBtn').onclick = () => {
     selectedYears = new Set(allData.years);
     const cyclingActivities = ['Ride','VirtualRide','GravelRide','MountainBikeRide','EBikeRide'];
     selectedTypes = new Set(allData.types.filter(t => cyclingActivities.includes(t)));
-    renderFilters();
-    render();
-  });
+    renderFilters(); render();
+  };
 
-  document.getElementById('toggleDaysBtn').addEventListener('click', () => {
+  const toggleBtn = document.getElementById('toggleDaysBtn');
+  toggleBtn.onclick = () => {
     showAllDays = !showAllDays;
-    const btn = document.getElementById('toggleDaysBtn');
-    btn.textContent = showAllDays ? 'Všechny dny' : 'Dny s aktivitou';
-    render();
-  });
+    toggleBtn.textContent = showAllDays ? 'Všechny dny' : 'Dny s aktivitou';
+    renderHeatmaps();
+  };
 }
 
 function render() {
@@ -184,25 +181,19 @@ function renderStats() {
     stats.activities++;
     stats.days.add(act.date);
     const agg = allData.aggregates[String(act.year)] && allData.aggregates[String(act.year)][act.type] && allData.aggregates[String(act.year)][act.type][act.date];
-    if (agg) { stats.distance += agg.distance||0; stats.time += agg.moving_time||0; stats.elevation += agg.elevation_gain||0; }
+    if (agg) { stats.distance += agg.distance || 0; stats.time += agg.moving_time || 0; stats.elevation += agg.elevation_gain || 0; }
   });
   const container = document.getElementById('statsContainer');
-  const kmTotal = (stats.distance/1000).toFixed(0);
-  const hTotal = (stats.time/3600).toFixed(0);
-  const elevKm = (stats.elevation/1000).toFixed(0);
-  const statsData = [
-    { label: 'Aktivity', value: stats.activities.toLocaleString('cs-CZ'), color: 'text-cyan-400' },
-    { label: 'Aktivní dny', value: stats.days.size.toLocaleString('cs-CZ'), color: 'text-cyan-400' },
-    { label: 'Let', value: selectedYears.size, color: 'text-cyan-400' },
-    { label: 'Typů', value: selectedTypes.size, color: 'text-cyan-400' },
-    { label: 'Km', value: parseInt(kmTotal).toLocaleString('cs-CZ'), color: 'text-cyan-400' },
-  ];
-  container.innerHTML = statsData.map(s =>
-    `<div class="stat-card bg-teal-900 p-4 rounded-xl border border-teal-700">
-      <p class="text-slate-200 text-xs uppercase mb-1">${s.label}</p>
-      <p class="text-3xl font-bold ${s.color}">${s.value}</p>
-    </div>`
-  ).join('');
+  container.innerHTML = [
+    { label: 'Aktivity', value: stats.activities.toLocaleString('cs-CZ') },
+    { label: 'Aktivní dny', value: stats.days.size.toLocaleString('cs-CZ') },
+    { label: 'Let', value: selectedYears.size },
+    { label: 'Typů', value: selectedTypes.size },
+    { label: 'Km', value: Math.round(stats.distance / 1000).toLocaleString('cs-CZ') }
+  ].map(s => `<div class="stat-card bg-teal-900 p-4 rounded-xl border border-teal-700">
+    <p class="text-slate-200 text-xs uppercase mb-1">${s.label}</p>
+    <p class="text-3xl font-bold text-cyan-400">${s.value}</p>
+  </div>`).join('');
 }
 
 function calcStreak(activities) {
@@ -211,12 +202,8 @@ function calcStreak(activities) {
   for (let i = 0; i < dates.length; i++) {
     const prev = i > 0 ? new Date(dates[i-1]+'T00:00:00Z') : null;
     const cur = new Date(dates[i]+'T00:00:00Z');
-    if (prev && (cur - prev) === 86400000) {
-      curStreak++;
-    } else {
-      curStreak = 1;
-      curStart = dates[i];
-    }
+    if (prev && (cur - prev) === 86400000) { curStreak++; }
+    else { curStreak = 1; curStart = dates[i]; }
     if (curStreak > maxStreak) { maxStreak = curStreak; maxStart = curStart; }
   }
   return { maxStreak, maxStart };
@@ -228,24 +215,24 @@ function renderExtraMetrics() {
 
   // 1) STREAK
   const { maxStreak, maxStart } = calcStreak(filteredActs);
-  const streakYear = maxStart ? maxStart.substring(0,4) : '—';
 
-  // 2) SROVNÁNÍ S LOŇSKEM
+  // 2) SROVNÁNÍ S LOŇSKEM - jen vybrané typy
   const thisYear = new Date().getFullYear();
   const lastYear = thisYear - 1;
   const today = new Date();
   const todayMD = (today.getMonth()+1).toString().padStart(2,'0') + '-' + today.getDate().toString().padStart(2,'0');
   let thisYearKm = 0, lastYearKm = 0;
   allData.activities.forEach(act => {
+    // OPRAVA: respektovat selectedTypes
     if (!selectedTypes.has(act.type)) return;
     const agg = allData.aggregates[String(act.year)] && allData.aggregates[String(act.year)][act.type] && allData.aggregates[String(act.year)][act.type][act.date];
-    const dist = agg ? (agg.distance||0) : 0;
+    const dist = agg ? (agg.distance || 0) : 0;
     const actMD = act.date.substring(5);
     if (act.year === thisYear && actMD <= todayMD) thisYearKm += dist;
     if (act.year === lastYear && actMD <= todayMD) lastYearKm += dist;
   });
   const diff = thisYearKm - lastYearKm;
-  const diffPct = lastYearKm > 0 ? ((diff/lastYearKm)*100).toFixed(0) : '—';
+  const diffPct = lastYearKm > 0 ? ((diff / lastYearKm) * 100).toFixed(0) : '—';
   const diffColor = diff >= 0 ? 'text-green-400' : 'text-red-400';
   const diffSign = diff >= 0 ? '+' : '';
 
@@ -253,22 +240,22 @@ function renderExtraMetrics() {
   let totalDist = 0, totalElev = 0, totalTime2 = 0, actCount = 0;
   filteredActs.forEach(act => {
     const agg = allData.aggregates[String(act.year)] && allData.aggregates[String(act.year)][act.type] && allData.aggregates[String(act.year)][act.type][act.date];
-    if (agg) { totalDist += agg.distance||0; totalElev += agg.elevation_gain||0; totalTime2 += agg.moving_time||0; actCount++; }
+    if (agg) { totalDist += agg.distance || 0; totalElev += agg.elevation_gain || 0; totalTime2 += agg.moving_time || 0; actCount++; }
   });
-  const avgKm = actCount > 0 ? (totalDist/actCount/1000).toFixed(1) : '—';
-  const avgElev = actCount > 0 ? Math.round(totalElev/actCount) : '—';
-  const avgMin = actCount > 0 ? Math.round(totalTime2/actCount/60) : '—';
+  const avgKm = actCount > 0 ? (totalDist / actCount / 1000).toFixed(1) : '—';
+  const avgElev = actCount > 0 ? Math.round(totalElev / actCount) : '—';
+  const avgMin = actCount > 0 ? Math.round(totalTime2 / actCount / 60) : '—';
 
   container.innerHTML = `
     <div class="stat-card bg-teal-900 rounded-xl border border-teal-700 p-4">
       <p class="text-xs text-slate-300 uppercase mb-1">🔥 Nejdelší série</p>
       <p class="text-3xl font-bold text-orange-400">${maxStreak} dní</p>
-      <p class="text-xs text-slate-400 mt-1">${maxStart ? 'od ' + maxStart + ' (' + streakYear + ')' : '—'}</p>
+      <p class="text-xs text-slate-400 mt-1">${maxStart ? 'od ' + maxStart : '—'}</p>
     </div>
     <div class="stat-card bg-teal-900 rounded-xl border border-teal-700 p-4">
       <p class="text-xs text-slate-300 uppercase mb-1">📊 vs. loňský rok (ke dnešku)</p>
-      <p class="text-3xl font-bold ${diffColor}">${diffSign}${Math.round(diff/1000).toLocaleString('cs-CZ')} km</p>
-      <p class="text-xs text-slate-400 mt-1">${thisYear}: ${Math.round(thisYearKm/1000).toLocaleString('cs-CZ')} km vs ${lastYear}: ${Math.round(lastYearKm/1000).toLocaleString('cs-CZ')} km (${diffSign}${diffPct}%)</p>
+      <p class="text-3xl font-bold ${diffColor}">${diffSign}${Math.round(diff / 1000).toLocaleString('cs-CZ')} km</p>
+      <p class="text-xs text-slate-400 mt-1">${thisYear}: ${Math.round(thisYearKm / 1000).toLocaleString('cs-CZ')} km &nbsp;vs&nbsp; ${lastYear}: ${Math.round(lastYearKm / 1000).toLocaleString('cs-CZ')} km (${diffSign}${diffPct}%)</p>
     </div>
     <div class="stat-card bg-teal-900 rounded-xl border border-teal-700 p-4">
       <p class="text-xs text-slate-300 uppercase mb-1">📐 Průměr na aktivitu</p>
@@ -280,205 +267,196 @@ function renderExtraMetrics() {
     </div>`;
 }
 function renderCharts() {
-  // Měsíční rozložení
+  // OPRAVA grafů: použít absolutní px výšky místo procent
   const monthNames = ['Led','Úno','Bře','Dub','Kvě','Čer','Čvc','Srp','Zář','Říj','Lis','Pro'];
   const monthCounts = new Array(12).fill(0);
   allData.activities.forEach(act => {
     if (!selectedYears.has(act.year) || !selectedTypes.has(act.type)) return;
-    const m = parseInt(act.date.substring(5,7)) - 1;
+    const m = parseInt(act.date.substring(5, 7)) - 1;
     monthCounts[m]++;
   });
   const maxMonth = Math.max(...monthCounts, 1);
+  const chartH = 88; // px
   const barChart = document.getElementById('monthBarChart');
   const barLabels = document.getElementById('monthLabels');
-  barChart.innerHTML = monthCounts.map((v,i) => {
-    const h = Math.round((v/maxMonth)*100);
-    const isMax = v === maxMonth;
-    return `<div class="flex-1 flex flex-col items-center justify-end" title="${monthNames[i]}: ${v}">
-      <div class="bar-chart-bar w-full rounded-t" style="height:${h}%;background:${isMax?'#22d3ee':'#0f766e'};min-height:2px;"></div>
+  barChart.innerHTML = monthCounts.map((v, i) => {
+    const h = Math.max(2, Math.round((v / maxMonth) * chartH));
+    const isMax = v === maxMonth && v > 0;
+    const color = isMax ? '#22d3ee' : '#0f766e';
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:${chartH}px;" title="${monthNames[i]}: ${v}">
+      <div style="width:100%;height:${h}px;background:${color};border-radius:3px 3px 0 0;"></div>
     </div>`;
   }).join('');
-  barLabels.innerHTML = monthNames.map((m,i) =>
-    `<span class="flex-1 text-center text-xs text-slate-400 ${monthCounts[i]===maxMonth?'text-cyan-300 font-bold':''}">${m}</span>`
+  barLabels.innerHTML = monthCounts.map((v, i) =>
+    `<span style="flex:1;text-align:center;font-size:11px;color:${v===maxMonth && v>0?'#67e8f9':'#94a3b8'};${v===maxMonth && v>0?'font-weight:bold;':''}">${monthNames[i]}</span>`
   ).join('');
 
   // Den v týdnu
   const dayNames = ['Po','Út','St','Čt','Pá','So','Ne'];
-  const dayNamesEn = [1,2,3,4,5,6,0]; // Mon=1..Sun=0 in JS getDay()
+  const dayJsValues = [1, 2, 3, 4, 5, 6, 0]; // Po=1, Út=2, ... Ne=0
   const dayCounts = new Array(7).fill(0);
   allData.activities.forEach(act => {
     if (!selectedYears.has(act.year) || !selectedTypes.has(act.type)) return;
-    const d = new Date(act.date+'T00:00:00Z').getDay(); // 0=Sun
-    const idx = dayNamesEn.indexOf(d);
+    const d = new Date(act.date + 'T00:00:00Z').getDay();
+    const idx = dayJsValues.indexOf(d);
     if (idx >= 0) dayCounts[idx]++;
   });
   const maxDay = Math.max(...dayCounts, 1);
   const wdChart = document.getElementById('weekdayBarChart');
   const wdLabels = document.getElementById('weekdayLabels');
-  wdChart.innerHTML = dayCounts.map((v,i) => {
-    const h = Math.round((v/maxDay)*100);
-    const isMax = v === maxDay;
-    return `<div class="flex-1 flex flex-col items-center justify-end" title="${dayNames[i]}: ${v}">
-      <div class="bar-chart-bar w-full rounded-t" style="height:${h}%;background:${isMax?'#f59e0b':'#0f766e'};min-height:2px;"></div>
+  wdChart.innerHTML = dayCounts.map((v, i) => {
+    const h = Math.max(2, Math.round((v / maxDay) * chartH));
+    const isMax = v === maxDay && v > 0;
+    const color = isMax ? '#f59e0b' : '#0f766e';
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:${chartH}px;" title="${dayNames[i]}: ${v}">
+      <div style="width:100%;height:${h}px;background:${color};border-radius:3px 3px 0 0;"></div>
     </div>`;
   }).join('');
-  wdLabels.innerHTML = dayNames.map((d,i) =>
-    `<span class="flex-1 text-center text-xs text-slate-400 ${dayCounts[i]===maxDay?'text-amber-300 font-bold':''}">${d}</span>`
+  wdLabels.innerHTML = dayCounts.map((v, i) =>
+    `<span style="flex:1;text-align:center;font-size:11px;color:${v===maxDay && v>0?'#fcd34d':'#94a3b8'};${v===maxDay && v>0?'font-weight:bold;':''}">${dayNames[i]}</span>`
   ).join('');
 }
 function renderHeatmaps() {
   const container = document.getElementById('heatmapsContainer');
-  const years = [...selectedYears].sort((a,b)=>b-a);
+  const years = [...selectedYears].sort((a, b) => b - a);
   if (!years.length) { container.innerHTML = '<p class="text-slate-200 text-center py-8">Žádná data podle filtrů</p>'; return; }
 
   const months = ['Leden','Únor','Březen','Duben','Květen','Červen','Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
   const dayNamesCS = ['Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota','Neděle'];
+  const dayJsValues = [1, 2, 3, 4, 5, 6, 0]; // Po..Ne -> getDay()
 
   container.innerHTML = years.map(year => {
     const yearAgg = (allData.aggregates && allData.aggregates[String(year)]) || {};
     const yearActivities = allData.activities.filter(a => a.year === year && selectedTypes.has(a.type));
 
-    let totalDistance=0, totalElevation=0, totalTime=0, activeDays=new Set();
-    Object.entries(yearAgg).forEach(([type,dates]) => {
+    let totalDistance = 0, totalElevation = 0, totalTime = 0;
+    const activeDays = new Set();
+    Object.entries(yearAgg).forEach(([type, dates]) => {
       if (!selectedTypes.has(type)) return;
-      Object.values(dates).forEach(dd => {
-        totalDistance += dd.distance||0;
-        totalElevation += dd.elevation_gain||0;
-        totalTime += dd.moving_time||0;
+      Object.entries(dates).forEach(([date, dd]) => {
+        totalDistance += dd.distance || 0;
+        totalElevation += dd.elevation_gain || 0;
+        totalTime += dd.moving_time || 0;
       });
     });
     yearActivities.forEach(a => activeDays.add(a.date));
 
+    // dayMap: date -> [types]
     const dayMap = {};
     yearActivities.forEach(act => {
-      dayMap[act.date] = dayMap[act.date] || [];
+      if (!dayMap[act.date]) dayMap[act.date] = [];
       if (!dayMap[act.date].includes(act.type)) dayMap[act.date].push(act.type);
     });
-    const allDates = Object.keys(dayMap).sort();
 
-    const monthsData = {};
-    allDates.forEach(date => {
-      const m = months[new Date(date+'T00:00:00Z').getMonth()];
-      monthsData[m] = monthsData[m] || [];
-      monthsData[m].push({ date, types: dayMap[date] });
-    });
-    const sortedMonths = months.filter(m => monthsData[m]);
-    const distKm = (totalDistance/1000).toFixed(0);
-    const timeH = (totalTime/3600).toFixed(0);
-    const elevM = Math.round(totalElevation);
+    const distKm = Math.round(totalDistance / 1000);
+    const timeH = Math.round(totalTime / 3600);
     const thisYear = new Date().getFullYear();
     const pct = year === thisYear
-      ? (activeDays.size / Math.floor((new Date()-new Date(year+'-01-01T00:00:00Z'))/86400000) * 100).toFixed(0) + '% k dnešku'
+      ? (activeDays.size / Math.max(1, Math.floor((new Date() - new Date(year + '-01-01T00:00:00Z')) / 86400000)) * 100).toFixed(0) + '% k dnešku'
       : (activeDays.size / 365 * 100).toFixed(0) + '% roku';
 
-    // GOAL for current year (hardcoded 8000km - kept from original)
+    // Cíl 2026
     let goalHtml = '';
     if (year === 2026) {
       const goalDist = 8000;
-      const currentDist = totalDistance/1000;
+      const currentDist = totalDistance / 1000;
       const remaining = Math.max(0, goalDist - currentDist);
-      const daysLeft = Math.ceil((new Date(`${year}-12-31`) - new Date())/86400000);
-      const dailyNeeded = (remaining/daysLeft).toFixed(1);
-      const percentage = Math.min(currentDist/goalDist*100, 100).toFixed(1);
-      const yearStart = new Date(`${year}-01-01`);
-      const today = new Date();
-      const daysElapsed = Math.floor((today-yearStart)/86400000);
-      const dailyAvg = (goalDist/365).toFixed(1);
-      const shouldHave = (daysElapsed * parseFloat(dailyAvg)).toFixed(0);
-      const progressDiff = currentDist - shouldHave;
+      const daysLeft = Math.ceil((new Date(`${year}-12-31`) - new Date()) / 86400000);
+      const dailyNeeded = (remaining / daysLeft).toFixed(1);
+      const percentage = Math.min(currentDist / goalDist * 100, 100).toFixed(1);
+      const daysElapsed = Math.floor((new Date() - new Date(`${year}-01-01`)) / 86400000);
+      const shouldHave = Math.round(daysElapsed * (goalDist / 365));
+      const progressDiff = Math.round(currentDist) - shouldHave;
       const diffColor = progressDiff >= 0 ? 'text-green-400' : 'text-red-400';
       const diffSign = progressDiff >= 0 ? '+' : '';
       goalHtml = `<div class="bg-teal-800 p-4 rounded-xl border border-teal-600 mt-4 mb-6">
         <p class="text-slate-200 text-xs uppercase mb-3">🎯 Cíl 2026: ${goalDist.toLocaleString('cs-CZ')} km</p>
-        <div class="mb-3"><div class="w-full bg-teal-700 rounded-full h-4 overflow-hidden"><div class="progress-bar-inner bg-gradient-to-r from-cyan-500 to-green-500 h-full rounded-full flex items-center justify-end pr-1" style="width:${percentage}%"><span class="text-xs text-white font-bold">${percentage}%</span></div></div></div>
+        <div class="mb-3"><div class="w-full bg-teal-700 rounded-full h-4 overflow-hidden"><div class="progress-bar-inner bg-gradient-to-r from-cyan-500 to-green-500 h-full rounded-full flex items-center justify-end pr-2" style="width:${percentage}%"><span class="text-xs text-white font-bold">${percentage}%</span></div></div></div>
         <div class="grid grid-cols-3 gap-4 mb-4">
           <div><p class="text-xs text-slate-100 mb-1">Postup</p><p class="text-2xl font-bold text-cyan-400">${Math.round(currentDist).toLocaleString('cs-CZ')}<span class="text-xs text-slate-100"> / ${goalDist.toLocaleString('cs-CZ')}</span></p><p class="text-xs text-slate-200 mt-1">${percentage}% hotovo</p></div>
-          <div><p class="text-xs text-slate-100 mb-1">Zbývá</p><p class="text-2xl font-bold ${remaining>0?'text-yellow-400':'text-green-400'}">${Math.round(remaining).toLocaleString('cs-CZ')} km</p><p class="text-xs text-slate-200 mt-1">${daysLeft} dní</p></div>
+          <div><p class="text-xs text-slate-100 mb-1">Zbývá</p><p class="text-2xl font-bold ${remaining > 0 ? 'text-yellow-400' : 'text-green-400'}">${Math.round(remaining).toLocaleString('cs-CZ')} km</p><p class="text-xs text-slate-200 mt-1">${daysLeft} dní</p></div>
           <div><p class="text-xs text-slate-100 mb-1">Denní průměr</p><p class="text-2xl font-bold text-green-400">${dailyNeeded} km</p><p class="text-xs text-slate-200 mt-1">do cíle</p></div>
         </div>
         <div class="border-t border-teal-600 pt-3"><p class="text-xs text-slate-100 mb-2 uppercase">Průběžný cíl (dnes)</p>
           <div class="grid grid-cols-2 gap-4">
-            <div><p class="text-xs text-slate-100 mb-1">Měl bych mít</p><p class="text-lg font-bold text-cyan-400">${parseInt(shouldHave).toLocaleString('cs-CZ')} km</p></div>
-            <div><p class="text-xs text-slate-100 mb-1">Mám</p><p class="text-lg font-bold ${diffColor}">${Math.round(currentDist).toLocaleString('cs-CZ')} km</p><p class="text-xs ${diffColor} mt-1">${diffSign}${Math.round(progressDiff).toLocaleString('cs-CZ')} km</p></div>
+            <div><p class="text-xs text-slate-100 mb-1">Měl bych mít</p><p class="text-lg font-bold text-cyan-400">${shouldHave.toLocaleString('cs-CZ')} km</p></div>
+            <div><p class="text-xs text-slate-100 mb-1">Mám</p><p class="text-lg font-bold ${diffColor}">${Math.round(currentDist).toLocaleString('cs-CZ')} km</p><p class="text-xs ${diffColor} mt-1">${diffSign}${progressDiff.toLocaleString('cs-CZ')} km</p></div>
           </div>
         </div>
       </div>`;
     }
 
-    // Heatmap grid
-    const heatmapRows = dayNamesCS.map(dayName => {
-      const dayIndex = dayNamesCS.indexOf(dayName);
-      const dayJsMap = [1,2,3,4,5,6,0]; // Mon..Sun -> getDay() values
-      const targetDay = dayJsMap[dayIndex];
-      const monthCells = sortedMonths.map(month => {
+    // Zjistit měsíce přítomné v daném roce (ze všech dní, ne jen aktivních)
+    const firstMonth = 0; // Leden
+    const lastMonth = year === new Date().getFullYear() ? new Date().getMonth() : 11;
+    const presentMonths = months.slice(firstMonth, lastMonth + 1);
+
+    // Heatmap grid - OPRAVA: showAllDays=true zobrazuje všechny dny (i prázdné), false jen aktivní
+    const heatmapRows = dayNamesCS.map((dayName, dayIndex) => {
+      const targetDay = dayJsValues[dayIndex]; // JS getDay() value
+      const monthCells = presentMonths.map(month => {
         const monthIndex = months.indexOf(month);
         const cellsHtml = [];
-        if (showAllDays) {
-          const daysInMonth = new Date(year, monthIndex+1, 0).getDate();
-          for (let d=1; d<=daysInMonth; d++) {
-            const dateObj = new Date(year, monthIndex, d);
-            if (dateObj.getDay() !== targetDay) continue;
-            const dateStr = `${year}-${String(monthIndex+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-            const dayData = dayMap[dateStr];
-            if (dayData) {
-              const types = dayData;
-              const color = (allData.type_meta && allData.type_meta[types[0]] && allData.type_meta[types[0]].accent) || '#6b7280';
-              const opacity = Math.min(0.3 + types.length*0.2, 1.0);
-              let allIds = new Set();
-              types.forEach(t => { const ag = yearAgg[t] && yearAgg[t][dateStr]; if(ag && ag.activity_ids) ag.activity_ids.forEach(id=>allIds.add(id)); });
-              cellsHtml.push(`<div class="cell" style="background-color:${color};opacity:${opacity}" title="${dateStr}: ${types.join(', ')}" data-date="${dateStr}" data-activities="${[...allIds].join(',')}" data-types="${types.join(',')}"></div>`);
-            } else {
-              cellsHtml.push(`<div class="cell" style="background-color:#4b5563;opacity:0.15"></div>`);
-            }
-          }
-        } else {
-          (monthsData[month]||[]).forEach(day => {
-            const dateObj = new Date(day.date+'T00:00:00Z');
-            if (dateObj.getDay() !== targetDay) return;
-            const types = day.types;
+        // Vždy iterujeme přes všechny dny v měsíci (showAllDays určuje jen jestli zobrazit prázdné)
+        const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+        for (let d = 1; d <= daysInMonth; d++) {
+          const dateObj = new Date(year, monthIndex, d);
+          if (dateObj.getDay() !== targetDay) continue;
+          // Přeskočit budoucí dny
+          if (dateObj > new Date()) continue;
+          const dateStr = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+          const dayData = dayMap[dateStr];
+          if (dayData && dayData.length > 0) {
+            const types = dayData;
             const color = (allData.type_meta && allData.type_meta[types[0]] && allData.type_meta[types[0]].accent) || '#6b7280';
-            const opacity = Math.min(0.3 + types.length*0.2, 1.0);
+            const opacity = Math.min(0.35 + types.length * 0.2, 1.0);
             let allIds = new Set();
-            types.forEach(t => { const ag = yearAgg[t] && yearAgg[t][day.date]; if(ag && ag.activity_ids) ag.activity_ids.forEach(id=>allIds.add(id)); });
-            cellsHtml.push(`<div class="cell" style="background-color:${color};opacity:${opacity}" title="${day.date}: ${types.join(', ')}" data-date="${day.date}" data-activities="${[...allIds].join(',')}" data-types="${types.join(',')}"></div>`);
-          });
+            types.forEach(t => { const ag = yearAgg[t] && yearAgg[t][dateStr]; if (ag && ag.activity_ids) ag.activity_ids.forEach(id => allIds.add(id)); });
+            cellsHtml.push(`<div class="cell" style="background-color:${color};opacity:${opacity}" title="${dateStr}: ${types.join(', ')}" data-date="${dateStr}" data-activities="${[...allIds].join(',')}" data-types="${types.join(',')}"></div>`);
+          } else if (showAllDays) {
+            // Prázdný den - zobrazit jen když showAllDays=true
+            cellsHtml.push(`<div class="cell" style="background-color:#4b5563;opacity:0.15"></div>`);
+          }
         }
-        return `<div class="flex gap-0.5">${cellsHtml.join('')}</div>`;
+        return `<div style="display:flex;flex-direction:column;gap:2px;">${cellsHtml.join('')}</div>`;
       }).join('');
-      return `<div class="flex gap-4 items-start"><span class="text-xs text-slate-400 w-16 shrink-0 pt-0.5">${dayName}</span><div class="flex gap-4">${monthCells}</div></div>`;
+      return `<div style="display:flex;gap:16px;align-items:flex-start;">
+        <span style="font-size:11px;color:#94a3b8;width:60px;flex-shrink:0;padding-top:1px;">${dayName}</span>
+        <div style="display:flex;gap:16px;">${monthCells}</div>
+      </div>`;
     }).join('');
 
     return `<div>
-      <div class="flex items-end justify-between mb-4 flex-wrap gap-3">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px;">
         <div>
-          <h2 class="text-2xl font-bold text-white mb-1">${year}</h2>
-          <div class="flex items-center gap-2">
-            <span class="text-xs bg-teal-700 rounded px-2 py-0.5 text-slate-200">📅 ${activeDays.size} aktivních dní</span>
-            <span class="text-xs text-slate-400">${pct}</span>
+          <h2 style="font-size:24px;font-weight:bold;color:white;margin-bottom:4px;">${year}</h2>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:11px;background:#0f766e;border-radius:4px;padding:2px 8px;color:#e2e8f0;">📅 ${activeDays.size} aktivních dní</span>
+            <span style="font-size:11px;color:#94a3b8;">${pct}</span>
           </div>
         </div>
-        <div class="flex gap-5 text-right">
-          <div><p class="text-xs text-slate-400 uppercase mb-1">🏔️ Výška</p><p class="text-xl font-bold text-amber-400">${elevM.toLocaleString('cs-CZ')} m</p></div>
-          <div><p class="text-xs text-slate-400 uppercase mb-1">📍 Vzdálenost</p><p class="text-xl font-bold text-cyan-400">${parseInt(distKm).toLocaleString('cs-CZ')} km</p></div>
-          <div><p class="text-xs text-slate-400 uppercase mb-1">⏱️ Čas</p><p class="text-xl font-bold text-green-400">${parseInt(timeH).toLocaleString('cs-CZ')} h</p></div>
+        <div style="display:flex;gap:20px;text-align:right;">
+          <div><p style="font-size:10px;color:#94a3b8;text-transform:uppercase;margin-bottom:2px;">🏔️ Výška</p><p style="font-size:20px;font-weight:bold;color:#fbbf24;">${totalElevation.toLocaleString('cs-CZ', {maximumFractionDigits:0})} m</p></div>
+          <div><p style="font-size:10px;color:#94a3b8;text-transform:uppercase;margin-bottom:2px;">📍 Vzdálenost</p><p style="font-size:20px;font-weight:bold;color:#22d3ee;">${distKm.toLocaleString('cs-CZ')} km</p></div>
+          <div><p style="font-size:10px;color:#94a3b8;text-transform:uppercase;margin-bottom:2px;">⏱️ Čas</p><p style="font-size:20px;font-weight:bold;color:#4ade80;">${timeH.toLocaleString('cs-CZ')} h</p></div>
         </div>
       </div>
       ${goalHtml}
-      <div class="flex gap-2 items-start mb-1">
-        <span class="text-xs text-slate-400 w-16 shrink-0"></span>
-        <div class="flex gap-4">${sortedMonths.map(m=>`<span class="text-xs text-slate-400 w-16 text-center">${m}</span>`).join('')}</div>
+      <div style="display:flex;gap:16px;align-items:center;margin-bottom:4px;">
+        <span style="font-size:11px;color:transparent;width:60px;flex-shrink:0;"></span>
+        <div style="display:flex;gap:16px;">${presentMonths.map(m => `<span style="font-size:11px;color:#94a3b8;text-align:center;display:inline-block;">${m}</span>`).join('')}</div>
       </div>
-      <div class="space-y-1">${heatmapRows}</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">${heatmapRows}</div>
     </div>`;
   }).join('');
 
   // Event listenery na čtverečky
   setTimeout(() => {
-    document.querySelectorAll('.cell').forEach(cell => {
+    document.querySelectorAll('.cell[data-activities]').forEach(cell => {
       cell.addEventListener('click', function(e) {
-        const activities = (cell.dataset.activities||'').split(',').filter(Boolean);
+        const activities = (cell.dataset.activities || '').split(',').filter(Boolean);
         if (!activities.length) return;
-        if (activities.length === 1) { window.open(`https://www.strava.com/activities/${activities[0]}`,'_blank'); }
+        if (activities.length === 1) { window.open(`https://www.strava.com/activities/${activities[0]}`, '_blank'); }
         else { showActivityMenu(activities, e); }
       });
     });
@@ -492,16 +470,13 @@ function showActivityMenu(activityIds, event) {
   menu.className = 'activity-menu';
   menu.style.left = event.clientX + 'px';
   menu.style.top = event.clientY + 'px';
-  menu.innerHTML = activityIds.map((id,idx) =>
+  menu.innerHTML = activityIds.map((id, idx) =>
     `<div class="activity-menu-item" onclick="window.open('https://www.strava.com/activities/${id}','_blank')">Aktivita ${idx+1}</div>`
   ).join('');
   document.body.appendChild(menu);
   setTimeout(() => {
     document.addEventListener('click', function closeMenu(e) {
-      if (!e.target.closest('.activity-menu') && !e.target.closest('.cell')) {
-        menu.remove();
-        document.removeEventListener('click', closeMenu);
-      }
+      if (!e.target.closest('.activity-menu') && !e.target.closest('.cell')) { menu.remove(); document.removeEventListener('click', closeMenu); }
     });
   }, 0);
 }
