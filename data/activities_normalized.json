@@ -27376,5 +27376,18 @@
     "start_date_local": "2026-04-20T07:19:37Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-21",
+    "distance": 1500.0,
+    "elevation_gain": 0.0,
+    "id": "18195474661",
+    "moving_time": 3753.0,
+    "name": "Poledn\u00ed plav\u00e1n\u00ed",
+    "raw_activity_type": "Swim",
+    "raw_type": "Swim",
+    "start_date_local": "2026-04-21T11:13:27Z",
+    "type": "Swim",
+    "year": 2026
   }
 ]
