@@ -27402,5 +27402,18 @@
     "start_date_local": "2026-04-22T06:45:39Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-22",
+    "distance": 2846.4,
+    "elevation_gain": 58.7,
+    "id": "18212024140",
+    "moving_time": 2539.0,
+    "name": "S holkama na proch\u00e1zku",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-04-22T14:41:26Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
