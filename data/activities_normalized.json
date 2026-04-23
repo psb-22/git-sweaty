@@ -27415,5 +27415,18 @@
     "start_date_local": "2026-04-22T14:41:26Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-04-23",
+    "distance": 5506.9,
+    "elevation_gain": 388.0,
+    "id": "18221164583",
+    "moving_time": 1801.0,
+    "name": "ROUVY - 20 min FTP Test (5 min Warm-Up)",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-23T06:54:23Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
