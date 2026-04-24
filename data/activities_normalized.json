@@ -27428,5 +27428,31 @@
     "start_date_local": "2026-04-23T06:54:23Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-24",
+    "distance": 1888.2,
+    "elevation_gain": 75.5,
+    "id": "18235008215",
+    "moving_time": 1505.0,
+    "name": "Ze servisu do kanclu",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-04-24T07:56:11Z",
+    "type": "Walk",
+    "year": 2026
+  },
+  {
+    "date": "2026-04-24",
+    "distance": 51359.4,
+    "elevation_gain": 722.0,
+    "id": "18241037045",
+    "moving_time": 7856.0,
+    "name": "\u2600 Kope\u010dky ve v\u011btrn\u00e9m podve\u010deru",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-04-24T15:58:55Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
