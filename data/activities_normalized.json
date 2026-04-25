@@ -27454,5 +27454,18 @@
     "start_date_local": "2026-04-24T15:58:55Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-04-25",
+    "distance": 6621.3,
+    "elevation_gain": 100.4,
+    "id": "18251147730",
+    "moving_time": 5118.0,
+    "name": "S Pe\u0165kou do Star\u00e9 pr\u00e1delny na ob\u011bd",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-04-25T11:50:31Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
