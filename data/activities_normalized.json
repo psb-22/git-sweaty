@@ -27467,5 +27467,18 @@
     "start_date_local": "2026-04-25T11:50:31Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-04-26",
+    "distance": 46230.3,
+    "elevation_gain": 188.0,
+    "id": "18260640448",
+    "moving_time": 4825.0,
+    "name": "ROUVY - P\u0159\u00edprava na Alpy den 1. - Aerobic Endurance",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-26T07:34:43Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
