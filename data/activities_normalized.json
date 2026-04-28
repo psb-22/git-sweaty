@@ -27493,5 +27493,18 @@
     "start_date_local": "2026-04-27T06:47:53Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-28",
+    "distance": 56433.0,
+    "elevation_gain": 246.0,
+    "id": "18293452213",
+    "moving_time": 5699.0,
+    "name": "P\u0159\u00edprava na Alpy den 3. - Sweet spot",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-28T15:58:36Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
