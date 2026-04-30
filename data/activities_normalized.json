@@ -27506,5 +27506,18 @@
     "start_date_local": "2026-04-28T15:58:36Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-04-30",
+    "distance": 32611.8,
+    "elevation_gain": 201.0,
+    "id": "18319978057",
+    "moving_time": 3292.0,
+    "name": "ROUVY - P\u0159\u00edprava na Alpy D4. - Tempo",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-04-30T15:52:04Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
