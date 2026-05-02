@@ -27519,5 +27519,18 @@
     "start_date_local": "2026-04-30T15:52:04Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-05-02",
+    "distance": 31699.9,
+    "elevation_gain": 545.0,
+    "id": "18343362954",
+    "moving_time": 5275.0,
+    "name": "P\u0159\u00edprava na Alpy D5 \u2013 posledn\u00ed ostr\u00fd stimul",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-05-02T10:19:06Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
