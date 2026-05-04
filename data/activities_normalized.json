@@ -27532,5 +27532,18 @@
     "start_date_local": "2026-05-02T10:19:06Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-05-04",
+    "distance": 17866.5,
+    "elevation_gain": 175.0,
+    "id": "18373819998",
+    "moving_time": 2994.0,
+    "name": "P\u0159\u00edprava na Alpy D6 \u2013 aktivace",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-05-04T16:52:35Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
