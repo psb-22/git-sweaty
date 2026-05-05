@@ -27545,5 +27545,18 @@
     "start_date_local": "2026-05-04T16:52:35Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-05-05",
+    "distance": 15685.6,
+    "elevation_gain": 44.0,
+    "id": "18383236722",
+    "moving_time": 1805.0,
+    "name": "ROUVY - P\u0159\u00edprava na Alpy D7 - lehk\u00e9 vyjet\u00ed",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-05-05T12:03:16Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
