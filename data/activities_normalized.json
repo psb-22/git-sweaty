@@ -27558,5 +27558,18 @@
     "start_date_local": "2026-05-05T12:03:16Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-05-06",
+    "distance": 9951.9,
+    "elevation_gain": 59.0,
+    "id": "18394389663",
+    "moving_time": 1199.0,
+    "name": "ROUVY - P\u0159\u00edprava na Alpy D8 - probuzen\u00ed nohou",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-05-06T06:13:50Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
