@@ -27571,5 +27571,31 @@
     "start_date_local": "2026-05-06T06:13:50Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-05-07",
+    "distance": 2123.7,
+    "elevation_gain": 10.4,
+    "id": "18416065238",
+    "moving_time": 2244.0,
+    "name": "Zkouknout Garmisch",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-05-07T18:28:23Z",
+    "type": "Walk",
+    "year": 2026
+  },
+  {
+    "date": "2026-05-08",
+    "distance": 103555.0,
+    "elevation_gain": 999.0,
+    "id": "18426691617",
+    "moving_time": 14449.0,
+    "name": "\ud83c\udf25 Alpy D1",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-05-08T10:20:01Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
