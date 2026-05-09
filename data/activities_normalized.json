@@ -27597,5 +27597,31 @@
     "start_date_local": "2026-05-08T10:20:01Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-05-08",
+    "distance": 3295.2,
+    "elevation_gain": 20.0,
+    "id": "18429370872",
+    "moving_time": 2829.0,
+    "name": "Na zmrzku",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-05-08T18:46:09Z",
+    "type": "Walk",
+    "year": 2026
+  },
+  {
+    "date": "2026-05-09",
+    "distance": 115072.0,
+    "elevation_gain": 1866.0,
+    "id": "18441721731",
+    "moving_time": 18181.0,
+    "name": "Alpy D2 Stubai",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-05-09T10:56:38Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
