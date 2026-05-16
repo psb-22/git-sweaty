@@ -27649,5 +27649,18 @@
     "start_date_local": "2026-05-10T19:14:22Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-05-16",
+    "distance": 14005.9,
+    "elevation_gain": 236.0,
+    "id": "18524513524",
+    "moving_time": 1780.0,
+    "name": "ROUVY - Ponta do Albernaz | Azores",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-05-16T07:53:36Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
