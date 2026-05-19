@@ -27688,5 +27688,18 @@
     "start_date_local": "2026-05-18T12:02:58Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-05-19",
+    "distance": 12773.0,
+    "elevation_gain": 153.0,
+    "id": "18563077712",
+    "moving_time": 1300.0,
+    "name": "ROUVY - Cabe\u00e7os do Mist\u00e9rio | Azores",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-05-19T05:32:06Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
