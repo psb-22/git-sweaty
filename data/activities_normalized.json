@@ -27701,5 +27701,18 @@
     "start_date_local": "2026-05-19T05:32:06Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-05-22",
+    "distance": 25598.3,
+    "elevation_gain": 384.0,
+    "id": "18606683305",
+    "moving_time": 3646.0,
+    "name": "\u2600 Ujisit se, \u017ee v p\u00e1tek nejsou silnice pr\u00e1zdn\u00e9 ani v poledne",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-05-22T11:58:47Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
