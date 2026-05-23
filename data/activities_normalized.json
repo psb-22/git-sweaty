@@ -27714,5 +27714,18 @@
     "start_date_local": "2026-05-22T11:58:47Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-05-23",
+    "distance": 106258.0,
+    "elevation_gain": 661.0,
+    "id": "18619367720",
+    "moving_time": 14825.0,
+    "name": "Na P\u00e1lavu",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-05-23T08:08:41Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
