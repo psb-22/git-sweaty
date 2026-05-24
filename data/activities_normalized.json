@@ -27727,5 +27727,18 @@
     "start_date_local": "2026-05-23T08:08:41Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-05-24",
+    "distance": 3935.9,
+    "elevation_gain": 130.3,
+    "id": "18633087202",
+    "moving_time": 3517.0,
+    "name": "S Pe\u0165kou na proch\u00e1zku",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-05-24T11:17:26Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
