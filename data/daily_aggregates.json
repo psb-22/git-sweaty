@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T17:46:49.860704+00:00",
+  "generated_at": "2026-05-25T18:19:56.266886+00:00",
   "years": {
     "2013": {
       "AlpineSki": {
@@ -16115,6 +16115,17 @@
           "distance": 38672.0,
           "elevation_gain": 410.0,
           "moving_time": 5609.0
+        }
+      },
+      "MountainBikeRide": {
+        "2026-05-25": {
+          "activity_ids": [
+            "18649174998"
+          ],
+          "count": 1,
+          "distance": 23349.6,
+          "elevation_gain": 471.0,
+          "moving_time": 4786.0
         }
       },
       "Ride": {

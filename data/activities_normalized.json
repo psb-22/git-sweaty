@@ -27740,5 +27740,18 @@
     "start_date_local": "2026-05-24T11:17:26Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-05-25",
+    "distance": 23349.6,
+    "elevation_gain": 471.0,
+    "id": "18649174998",
+    "moving_time": 4786.0,
+    "name": "\u2600 Kopce v lese za bar\u00e1kem",
+    "raw_activity_type": "Ride",
+    "raw_type": "MountainBikeRide",
+    "start_date_local": "2026-05-25T15:53:53Z",
+    "type": "MountainBikeRide",
+    "year": 2026
   }
 ]
