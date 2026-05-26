@@ -27753,5 +27753,18 @@
     "start_date_local": "2026-05-25T15:53:53Z",
     "type": "MountainBikeRide",
     "year": 2026
+  },
+  {
+    "date": "2026-05-26",
+    "distance": 48796.1,
+    "elevation_gain": 600.0,
+    "id": "18662935159",
+    "moving_time": 7224.0,
+    "name": "\u2600 Intervaly a Alzabox",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-05-26T16:07:19Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
