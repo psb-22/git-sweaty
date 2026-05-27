@@ -27766,5 +27766,18 @@
     "start_date_local": "2026-05-26T16:07:19Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-05-27",
+    "distance": 10983.0,
+    "elevation_gain": 73.0,
+    "id": "18670121946",
+    "moving_time": 1319.0,
+    "name": "ROUVY - Easy Recovery | Back to Basics",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-05-27T06:04:20Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
