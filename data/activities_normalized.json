@@ -27779,5 +27779,18 @@
     "start_date_local": "2026-05-27T06:04:20Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-05-28",
+    "distance": 29694.5,
+    "elevation_gain": 609.0,
+    "id": "18690760741",
+    "moving_time": 6201.0,
+    "name": "Do Fithamu pro ho\u0159\u010d\u00edk",
+    "raw_activity_type": "Ride",
+    "raw_type": "MountainBikeRide",
+    "start_date_local": "2026-05-28T16:11:44Z",
+    "type": "MountainBikeRide",
+    "year": 2026
   }
 ]
