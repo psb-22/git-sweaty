@@ -27818,5 +27818,18 @@
     "start_date_local": "2026-06-01T06:27:36Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-06-02",
+    "distance": 21302.3,
+    "elevation_gain": 375.0,
+    "id": "18756809658",
+    "moving_time": 3541.0,
+    "name": "Sweet spot",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-06-02T15:59:52Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
