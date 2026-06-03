@@ -27831,5 +27831,31 @@
     "start_date_local": "2026-06-02T15:59:52Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-06-03",
+    "distance": 1757.7,
+    "elevation_gain": 29.0,
+    "id": "18765491758",
+    "moving_time": 1352.0,
+    "name": "Do Alzy pro bal\u00ed\u010dek",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-06-03T07:16:28Z",
+    "type": "Walk",
+    "year": 2026
+  },
+  {
+    "date": "2026-06-03",
+    "distance": 48765.2,
+    "elevation_gain": 227.0,
+    "id": "18771592790",
+    "moving_time": 5098.0,
+    "name": "Rouvy Z3 bloky n\u00e1hrada za outdoor",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-06-03T16:27:13Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
