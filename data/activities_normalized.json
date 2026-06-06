@@ -27857,5 +27857,18 @@
     "start_date_local": "2026-06-03T16:27:13Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-06-06",
+    "distance": 3982.8,
+    "elevation_gain": 36.9,
+    "id": "18810535604",
+    "moving_time": 3292.0,
+    "name": "S holkama na p\u0159ehradu",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-06-06T14:33:21Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
