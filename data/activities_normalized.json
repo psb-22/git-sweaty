@@ -27896,5 +27896,18 @@
     "start_date_local": "2026-06-07T17:37:07Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-06-08",
+    "distance": 147274.0,
+    "elevation_gain": 1561.0,
+    "id": "18839797504",
+    "moving_time": 21503.0,
+    "name": "\u2600 P\u016flden dovolen\u00e9",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-06-08T12:03:29Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
