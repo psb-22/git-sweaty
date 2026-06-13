@@ -27922,5 +27922,18 @@
     "start_date_local": "2026-06-09T16:17:42Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-06-13",
+    "distance": 27666.2,
+    "elevation_gain": 377.0,
+    "id": "18898541077",
+    "moving_time": 3910.0,
+    "name": "ROUVY - Z2",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-06-13T07:09:44Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
