@@ -27935,5 +27935,18 @@
     "start_date_local": "2026-06-13T07:09:44Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-06-14",
+    "distance": 54923.7,
+    "elevation_gain": 558.0,
+    "id": "18914696910",
+    "moving_time": 7852.0,
+    "name": "\ud83d\udca8\ud83d\udca8\ud83d\udca8V\u011btrn\u00e9 dopoledne\ud83d\udca8\ud83d\udca8\ud83d\udca8\ud83c\udf66",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-06-14T09:55:30Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
