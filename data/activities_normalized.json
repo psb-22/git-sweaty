@@ -27961,5 +27961,18 @@
     "start_date_local": "2026-06-15T06:30:06Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-06-16",
+    "distance": 5685.6,
+    "elevation_gain": 183.0,
+    "id": "18938246909",
+    "moving_time": 1499.0,
+    "name": "Rouvy Z1 \u2014 taper",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-06-16T06:27:42Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
