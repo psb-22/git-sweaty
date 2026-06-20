@@ -28000,5 +28000,18 @@
     "start_date_local": "2026-06-19T05:54:42Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-06-20",
+    "distance": 3022.3,
+    "elevation_gain": 48.4,
+    "id": "18992071041",
+    "moving_time": 2434.0,
+    "name": "Na chvilku do lesa",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-06-20T07:13:50Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
