@@ -28013,5 +28013,18 @@
     "start_date_local": "2026-06-20T07:13:50Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-06-21",
+    "distance": 221964.0,
+    "elevation_gain": 2768.0,
+    "id": "19013140938",
+    "moving_time": 33606.0,
+    "name": "Od ko\u0148a ke ko\u0148ovi aneb od \u017di\u017eky k Jo\u0161tovi",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-06-21T06:10:10Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
