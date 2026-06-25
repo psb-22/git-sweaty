@@ -28039,5 +28039,18 @@
     "start_date_local": "2026-06-23T16:10:16Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-06-25",
+    "distance": 23246.7,
+    "elevation_gain": 464.0,
+    "id": "19063238895",
+    "moving_time": 5017.0,
+    "name": "Schovat se p\u0159ed \u2600\ufe0f\u2600\ufe0f do lesa",
+    "raw_activity_type": "Ride",
+    "raw_type": "MountainBikeRide",
+    "start_date_local": "2026-06-25T16:24:57Z",
+    "type": "MountainBikeRide",
+    "year": 2026
   }
 ]
