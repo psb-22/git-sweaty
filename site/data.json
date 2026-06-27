@@ -15105,6 +15105,13 @@
       "subtype": "MountainBikeRide",
       "type": "MountainBikeRide",
       "year": 2026
+    },
+    {
+      "date": "2026-06-27",
+      "hour": 5,
+      "subtype": "Ride",
+      "type": "Ride",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -31433,6 +31440,15 @@
           "distance": 27011.0,
           "elevation_gain": 307.0,
           "moving_time": 4325.0
+        },
+        "2026-06-27": {
+          "activity_ids": [
+            "19082334364"
+          ],
+          "count": 1,
+          "distance": 100133.0,
+          "elevation_gain": 1329.0,
+          "moving_time": 14926.0
         }
       },
       "Swim": {
@@ -32561,7 +32577,7 @@
       }
     }
   },
-  "generated_at": "2026-06-26T18:19:37.104775+00:00",
+  "generated_at": "2026-06-27T17:52:39.686109+00:00",
   "other_bucket": "OtherSports",
   "repo": "psb-22/git-sweaty",
   "source": "strava",

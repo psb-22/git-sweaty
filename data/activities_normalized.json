@@ -28052,5 +28052,18 @@
     "start_date_local": "2026-06-25T16:24:57Z",
     "type": "MountainBikeRide",
     "year": 2026
+  },
+  {
+    "date": "2026-06-27",
+    "distance": 100133.0,
+    "elevation_gain": 1329.0,
+    "id": "19082334364",
+    "moving_time": 14926.0,
+    "name": "Posb\u00edrat p\u00e1r dla\u017edic d\u0159\u00edv, ne\u017e se z vedra stane nesnesiteln\u00e9 vedro \ud83e\udd75",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-06-27T05:59:39Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
