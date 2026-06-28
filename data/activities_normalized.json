@@ -28065,5 +28065,18 @@
     "start_date_local": "2026-06-27T05:59:39Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-06-28",
+    "distance": 31261.6,
+    "elevation_gain": 255.0,
+    "id": "19093949124",
+    "moving_time": 4409.0,
+    "name": "V Brn\u011b kolem \u0159eky",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-06-28T06:50:45Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
