@@ -28091,5 +28091,31 @@
     "start_date_local": "2026-07-04T08:41:28Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-07-05",
+    "distance": 30199.2,
+    "elevation_gain": 367.0,
+    "id": "19184299957",
+    "moving_time": 3373.0,
+    "name": "ROUVY - Seccagrande to Porto Empedocle | Sicily",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-05T07:10:52Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-05",
+    "distance": 5455.9,
+    "elevation_gain": 6.0,
+    "id": "19184341603",
+    "moving_time": 419.0,
+    "name": "ROUVY - 7 Minute Cool-down",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-05T08:08:45Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
