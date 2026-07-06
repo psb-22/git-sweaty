@@ -28117,5 +28117,31 @@
     "start_date_local": "2026-07-05T08:08:45Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-06",
+    "distance": 11669.4,
+    "elevation_gain": 199.0,
+    "id": "19197202018",
+    "moving_time": 1449.0,
+    "name": "ROUVY - S\u00e3o Jo\u00e3o | Azores",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-06T08:01:15Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-06",
+    "distance": 22573.1,
+    "elevation_gain": 349.0,
+    "id": "19197619245",
+    "moving_time": 2808.0,
+    "name": "ROUVY - Castelluzzo to Torre dell\u2019Impiso | Sicily",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-07-06T08:42:19Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
