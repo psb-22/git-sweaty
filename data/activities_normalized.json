@@ -28169,5 +28169,18 @@
     "start_date_local": "2026-07-07T12:34:32Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-10",
+    "distance": 23714.7,
+    "elevation_gain": 336.0,
+    "id": "19254788453",
+    "moving_time": 3440.0,
+    "name": "Na kole na sladk\u00fd ob\u011bd",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-07-10T12:00:16Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
