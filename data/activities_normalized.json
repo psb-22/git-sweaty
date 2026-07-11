@@ -28182,5 +28182,31 @@
     "start_date_local": "2026-07-10T12:00:16Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-07-11",
+    "distance": 1550.5,
+    "elevation_gain": 16.2,
+    "id": "19264460363",
+    "moving_time": 1453.0,
+    "name": "S Pe\u0165kou na trhy",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-07-11T08:21:01Z",
+    "type": "Walk",
+    "year": 2026
+  },
+  {
+    "date": "2026-07-11",
+    "distance": 77278.0,
+    "elevation_gain": 711.0,
+    "id": "19270159059",
+    "moving_time": 10949.0,
+    "name": "Teplo, ale v\u011btrno\ud83d\udca8\ud83d\udca8\ud83d\udca8\ud83d\udca8\ud83d\udca8\ud83d\udca8",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-07-11T13:16:38Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
