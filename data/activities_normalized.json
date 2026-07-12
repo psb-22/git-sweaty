@@ -28208,5 +28208,18 @@
     "start_date_local": "2026-07-11T13:16:38Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-07-12",
+    "distance": 2115.5,
+    "elevation_gain": 39.6,
+    "id": "19277137746",
+    "moving_time": 1870.0,
+    "name": "Do Alzy pro bal\u00ed\u010dek",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-07-12T06:26:36Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
