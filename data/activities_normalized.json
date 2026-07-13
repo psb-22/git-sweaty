@@ -28221,5 +28221,18 @@
     "start_date_local": "2026-07-12T06:26:36Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-07-13",
+    "distance": 56102.1,
+    "elevation_gain": 825.0,
+    "id": "19297022231",
+    "moving_time": 9842.0,
+    "name": "Pra\u0161n\u00e9 a kopcovit\u00e9 gravel odpoledne",
+    "raw_activity_type": "Ride",
+    "raw_type": "GravelRide",
+    "start_date_local": "2026-07-13T15:58:20Z",
+    "type": "GravelRide",
+    "year": 2026
   }
 ]
