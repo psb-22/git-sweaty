@@ -28234,5 +28234,18 @@
     "start_date_local": "2026-07-13T15:58:20Z",
     "type": "GravelRide",
     "year": 2026
+  },
+  {
+    "date": "2026-07-16",
+    "distance": 2287.0,
+    "elevation_gain": 14.1,
+    "id": "19337992119",
+    "moving_time": 2334.0,
+    "name": "Sloupsko-\u0160o\u0161\u016fvsk\u00e9 jeskyn\u011b s holkama",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-07-16T13:54:41Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
