@@ -28247,5 +28247,18 @@
     "start_date_local": "2026-07-16T13:54:41Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-07-18",
+    "distance": 29600.7,
+    "elevation_gain": 273.0,
+    "id": "19359608898",
+    "moving_time": 6270.0,
+    "name": "S B\u00e1rou na sn\u00eddani pod\u00e9l \u0159eky",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-07-18T07:44:24Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
