@@ -28260,5 +28260,18 @@
     "start_date_local": "2026-07-18T07:44:24Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-07-19",
+    "distance": 2758.3,
+    "elevation_gain": 44.9,
+    "id": "19371624506",
+    "moving_time": 2376.0,
+    "name": "Rann\u00ed proch\u00e1zka s B\u00e1rou",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-07-19T08:10:13Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
