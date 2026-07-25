@@ -28299,5 +28299,18 @@
     "start_date_local": "2026-07-21T11:52:23Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-07-25",
+    "distance": 110731.0,
+    "elevation_gain": 1464.0,
+    "id": "19458369258",
+    "moving_time": 17684.0,
+    "name": "Kopcovit\u00e9 gravel dla\u017edice kolem \"v\u00eddn\u011b\" :-)",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-07-25T08:11:51Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
