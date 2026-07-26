@@ -28312,5 +28312,18 @@
     "start_date_local": "2026-07-25T08:11:51Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-07-26",
+    "distance": 31039.1,
+    "elevation_gain": 246.0,
+    "id": "19467807984",
+    "moving_time": 4378.0,
+    "name": "Ned\u011bln\u00ed klasika, pod\u00e9l \u0159eky na kafe",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-07-26T07:06:07Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
