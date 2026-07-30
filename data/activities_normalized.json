@@ -28338,5 +28338,18 @@
     "start_date_local": "2026-07-29T16:24:42Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-07-30",
+    "distance": 5657.6,
+    "elevation_gain": 131.2,
+    "id": "19526459855",
+    "moving_time": 6400.0,
+    "name": "Ka\u017edoro\u010dn\u00ed pr\u00e1zdninov\u00e1 n\u00e1v\u0161t\u011bva ZOO s holkama",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-07-30T09:08:42Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
