@@ -28351,5 +28351,18 @@
     "start_date_local": "2026-07-30T09:08:42Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-07-31",
+    "distance": 23517.4,
+    "elevation_gain": 458.0,
+    "id": "19544293541",
+    "moving_time": 4866.0,
+    "name": "Schovat se do lesa",
+    "raw_activity_type": "Ride",
+    "raw_type": "MountainBikeRide",
+    "start_date_local": "2026-07-31T16:33:20Z",
+    "type": "MountainBikeRide",
+    "year": 2026
   }
 ]
