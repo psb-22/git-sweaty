@@ -28377,5 +28377,18 @@
     "start_date_local": "2026-08-01T06:01:30Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-08-02",
+    "distance": 31976.0,
+    "elevation_gain": 248.0,
+    "id": "19564616726",
+    "moving_time": 4684.0,
+    "name": "Ned\u011bln\u00ed klasika kolem \u0159eky",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-08-02T06:59:13Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
