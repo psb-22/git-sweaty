@@ -28390,5 +28390,18 @@
     "start_date_local": "2026-08-02T06:59:13Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-08-03",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "19584321318",
+    "moving_time": 1910.0,
+    "name": "Monday Evening Mixed Cardio",
+    "raw_activity_type": "Workout",
+    "raw_type": "Workout",
+    "start_date_local": "2026-08-03T17:06:03Z",
+    "type": "Workout",
+    "year": 2026
   }
 ]
