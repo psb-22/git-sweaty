@@ -28429,5 +28429,18 @@
     "start_date_local": "2026-08-07T16:48:31Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-08-08",
+    "distance": 61430.9,
+    "elevation_gain": 585.0,
+    "id": "19650674665",
+    "moving_time": 8537.0,
+    "name": "Jen tak......",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-08-08T08:13:46Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
