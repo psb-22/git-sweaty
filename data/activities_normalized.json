@@ -28442,5 +28442,18 @@
     "start_date_local": "2026-08-08T08:13:46Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-08-09",
+    "distance": 30007.2,
+    "elevation_gain": 277.0,
+    "id": "19666555985",
+    "moving_time": 6505.0,
+    "name": "Kolem \u0159eky s Pe\u0165kou a jej\u00ed s\u00e9grou",
+    "raw_activity_type": "Ride",
+    "raw_type": "GravelRide",
+    "start_date_local": "2026-08-09T09:06:14Z",
+    "type": "GravelRide",
+    "year": 2026
   }
 ]
