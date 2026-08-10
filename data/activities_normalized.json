@@ -28451,9 +28451,9 @@
     "moving_time": 6505.0,
     "name": "Kolem \u0159eky s Pe\u0165kou a jej\u00ed s\u00e9grou",
     "raw_activity_type": "Ride",
-    "raw_type": "GravelRide",
+    "raw_type": "Ride",
     "start_date_local": "2026-08-09T09:06:14Z",
-    "type": "GravelRide",
+    "type": "Ride",
     "year": 2026
   }
 ]
