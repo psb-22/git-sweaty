@@ -28455,5 +28455,18 @@
     "start_date_local": "2026-08-09T09:06:14Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-08-11",
+    "distance": 20416.1,
+    "elevation_gain": 296.0,
+    "id": "19693792742",
+    "moving_time": 2997.0,
+    "name": "Rychlovka v poledn\u00ed pauze",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-08-11T11:59:39Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
