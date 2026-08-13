@@ -28481,5 +28481,18 @@
     "start_date_local": "2026-08-12T15:55:37Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-08-13",
+    "distance": 35006.0,
+    "elevation_gain": 287.0,
+    "id": "19727136078",
+    "moving_time": 5286.0,
+    "name": "Zmrzlin\u00e1\u0159",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-08-13T16:06:26Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
