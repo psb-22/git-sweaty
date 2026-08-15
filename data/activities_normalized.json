@@ -28494,5 +28494,18 @@
     "start_date_local": "2026-08-13T16:06:26Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-08-15",
+    "distance": 38068.9,
+    "elevation_gain": 308.0,
+    "id": "19750391551",
+    "moving_time": 8226.0,
+    "name": "Pohodov\u00e1 sobota s holkama",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-08-15T09:00:36Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
