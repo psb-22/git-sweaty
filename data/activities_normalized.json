@@ -28507,5 +28507,18 @@
     "start_date_local": "2026-08-15T09:00:36Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-08-16",
+    "distance": 7121.0,
+    "elevation_gain": 153.2,
+    "id": "19768127109",
+    "moving_time": 5706.0,
+    "name": "Rodinn\u00e9 odpoledne",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-08-16T14:48:25Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
