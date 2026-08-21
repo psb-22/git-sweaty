@@ -28520,5 +28520,31 @@
     "start_date_local": "2026-08-16T14:48:25Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-08-21",
+    "distance": 27200.3,
+    "elevation_gain": 224.0,
+    "id": "19834976630",
+    "moving_time": 2270.0,
+    "name": "ROUVY - Beaverhead-Deerlodge National Forest | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-21T11:59:08Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-08-21",
+    "distance": 5398.5,
+    "elevation_gain": 4.0,
+    "id": "19835080359",
+    "moving_time": 420.0,
+    "name": "ROUVY - 7 Minute Cool-down",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-21T12:38:28Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
