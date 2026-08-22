@@ -28546,5 +28546,44 @@
     "start_date_local": "2026-08-21T12:38:28Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-08-22",
+    "distance": 16248.3,
+    "elevation_gain": 279.0,
+    "id": "19845384112",
+    "moving_time": 1845.0,
+    "name": "ROUVY - Ferry Lake | East Helena | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-22T07:39:51Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-08-22",
+    "distance": 26293.5,
+    "elevation_gain": 26.0,
+    "id": "19845730797",
+    "moving_time": 2082.0,
+    "name": "ROUVY - Gallatin River Canyon | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-08-22T08:28:32Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-08-22",
+    "distance": 2080.0,
+    "elevation_gain": 29.7,
+    "id": "19849432132",
+    "moving_time": 2143.0,
+    "name": "Saturday Afternoon Walk",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-08-22T13:12:03Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
