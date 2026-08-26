@@ -28598,5 +28598,18 @@
     "start_date_local": "2026-08-23T08:30:01Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-08-26",
+    "distance": 2840.5,
+    "elevation_gain": 43.8,
+    "id": "19909577275",
+    "moving_time": 2486.0,
+    "name": "Proch\u00e1zka s Pe\u0165kou",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-08-26T16:35:57Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
