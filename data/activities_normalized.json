@@ -28611,5 +28611,18 @@
     "start_date_local": "2026-08-26T16:35:57Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-08-27",
+    "distance": 110072.0,
+    "elevation_gain": 660.0,
+    "id": "19926670393",
+    "moving_time": 15335.0,
+    "name": "Na bur\u010d\u00e1k, zase\u2026.",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-08-27T15:59:37Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
