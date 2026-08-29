@@ -15413,6 +15413,27 @@
       "subtype": "Ride",
       "type": "Ride",
       "year": 2026
+    },
+    {
+      "date": "2026-08-29",
+      "hour": 7,
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-29",
+      "hour": 7,
+      "subtype": "VirtualRide",
+      "type": "VirtualRide",
+      "year": 2026
+    },
+    {
+      "date": "2026-08-29",
+      "hour": 18,
+      "subtype": "Walk",
+      "type": "Walk",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -32855,6 +32876,16 @@
           "distance": 42541.8,
           "elevation_gain": 305.0,
           "moving_time": 3927.0
+        },
+        "2026-08-29": {
+          "activity_ids": [
+            "19944036750",
+            "19944076733"
+          ],
+          "count": 2,
+          "distance": 31560.199999999997,
+          "elevation_gain": 80.0,
+          "moving_time": 2620.0
         }
       },
       "Walk": {
@@ -33109,6 +33140,15 @@
           "distance": 2840.5,
           "elevation_gain": 43.8,
           "moving_time": 2486.0
+        },
+        "2026-08-29": {
+          "activity_ids": [
+            "19952380899"
+          ],
+          "count": 1,
+          "distance": 2269.4,
+          "elevation_gain": 40.7,
+          "moving_time": 2110.0
         }
       },
       "WeightTraining": {
@@ -33225,7 +33265,7 @@
       }
     }
   },
-  "generated_at": "2026-08-29T00:46:17.424992+00:00",
+  "generated_at": "2026-08-29T19:32:53.571387+00:00",
   "other_bucket": "OtherSports",
   "repo": "psb-22/git-sweaty",
   "source": "strava",
