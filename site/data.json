@@ -15434,6 +15434,13 @@
       "subtype": "Walk",
       "type": "Walk",
       "year": 2026
+    },
+    {
+      "date": "2026-08-30",
+      "hour": 7,
+      "subtype": "GravelRide",
+      "type": "GravelRide",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -31560,6 +31567,15 @@
           "distance": 56102.1,
           "elevation_gain": 825.0,
           "moving_time": 9842.0
+        },
+        "2026-08-30": {
+          "activity_ids": [
+            "19960942296"
+          ],
+          "count": 1,
+          "distance": 66108.5,
+          "elevation_gain": 310.0,
+          "moving_time": 10752.0
         }
       },
       "MountainBikeRide": {
@@ -33265,7 +33281,7 @@
       }
     }
   },
-  "generated_at": "2026-08-29T19:32:53.571387+00:00",
+  "generated_at": "2026-08-30T19:31:40.751457+00:00",
   "other_bucket": "OtherSports",
   "repo": "psb-22/git-sweaty",
   "source": "strava",

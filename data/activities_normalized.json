@@ -28663,5 +28663,18 @@
     "start_date_local": "2026-08-29T18:23:49Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-08-30",
+    "distance": 66108.5,
+    "elevation_gain": 310.0,
+    "id": "19960942296",
+    "moving_time": 10752.0,
+    "name": "29 nov\u00fdch dla\u017edic \"mimo silnice a civilizaci\"",
+    "raw_activity_type": "Ride",
+    "raw_type": "GravelRide",
+    "start_date_local": "2026-08-30T07:52:27Z",
+    "type": "GravelRide",
+    "year": 2026
   }
 ]
