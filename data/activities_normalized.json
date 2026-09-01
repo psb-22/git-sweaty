@@ -28676,5 +28676,18 @@
     "start_date_local": "2026-08-30T07:52:27Z",
     "type": "GravelRide",
     "year": 2026
+  },
+  {
+    "date": "2026-09-01",
+    "distance": 5230.2,
+    "elevation_gain": 114.2,
+    "id": "19992194156",
+    "moving_time": 4346.0,
+    "name": "S Pe\u0165kou na zmrzku",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-09-01T16:38:17Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
