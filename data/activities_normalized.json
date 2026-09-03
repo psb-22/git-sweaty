@@ -28689,5 +28689,18 @@
     "start_date_local": "2026-09-01T16:38:17Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-09-03",
+    "distance": 42464.9,
+    "elevation_gain": 523.0,
+    "id": "20022618816",
+    "moving_time": 6981.0,
+    "name": "Nejen bur\u010d\u00e1kem \u017eiv je \u010dlov\u011bk \ud83c\udf66",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-09-03T16:30:44Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
