@@ -28702,5 +28702,44 @@
     "start_date_local": "2026-09-03T16:30:44Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-09-05",
+    "distance": 10869.7,
+    "elevation_gain": 70.0,
+    "id": "20041265665",
+    "moving_time": 1028.0,
+    "name": "ROUVY - Gravel | Madison Buffalo Jump State Park | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-09-05T06:27:46Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-09-05",
+    "distance": 20130.6,
+    "elevation_gain": 58.0,
+    "id": "20041394962",
+    "moving_time": 1627.0,
+    "name": "ROUVY - Madison River Canyon | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-09-05T06:52:14Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-09-05",
+    "distance": 2039.6,
+    "elevation_gain": 60.0,
+    "id": "20047188776",
+    "moving_time": 1645.0,
+    "name": "Do Alzaboxu",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-09-05T15:06:04Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
