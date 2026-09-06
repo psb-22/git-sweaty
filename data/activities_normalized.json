@@ -28741,5 +28741,18 @@
     "start_date_local": "2026-09-05T15:06:04Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-09-06",
+    "distance": 48586.7,
+    "elevation_gain": 656.0,
+    "id": "20058053033",
+    "moving_time": 7365.0,
+    "name": "Na zmrzku",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-09-06T09:36:35Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
