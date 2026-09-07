@@ -28754,5 +28754,31 @@
     "start_date_local": "2026-09-06T09:36:35Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-09-07",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "20071235595",
+    "moving_time": 1307.0,
+    "name": "Poledn\u00ed posilov\u00e1n\u00ed",
+    "raw_activity_type": "WeightTraining",
+    "raw_type": "WeightTraining",
+    "start_date_local": "2026-09-07T11:41:14Z",
+    "type": "WeightTraining",
+    "year": 2026
+  },
+  {
+    "date": "2026-09-07",
+    "distance": 51327.7,
+    "elevation_gain": 403.0,
+    "id": "20077532596",
+    "moving_time": 8014.0,
+    "name": "Se Zuzkou na zmrzku",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-09-07T16:50:08Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
