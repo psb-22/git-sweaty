@@ -28793,5 +28793,31 @@
     "start_date_local": "2026-09-08T17:45:08Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-09-10",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "20111832375",
+    "moving_time": 1092.0,
+    "name": "Morning Weight Training",
+    "raw_activity_type": "WeightTraining",
+    "raw_type": "WeightTraining",
+    "start_date_local": "2026-09-10T06:18:58Z",
+    "type": "WeightTraining",
+    "year": 2026
+  },
+  {
+    "date": "2026-09-10",
+    "distance": 17369.3,
+    "elevation_gain": 0.0,
+    "id": "20119967864",
+    "moving_time": 2715.0,
+    "name": "Poledn\u00ed j\u00edzda",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-09-10T12:01:46Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
