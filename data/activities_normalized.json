@@ -28819,5 +28819,18 @@
     "start_date_local": "2026-09-10T12:01:46Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-09-11",
+    "distance": 24699.1,
+    "elevation_gain": 310.0,
+    "id": "20128280944",
+    "moving_time": 2513.0,
+    "name": "ROUVY - Alpine Panorama route | Stage 1 | Kaien - Appenzell",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-09-11T12:08:35Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
