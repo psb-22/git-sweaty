@@ -28832,5 +28832,18 @@
     "start_date_local": "2026-09-11T12:08:35Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-09-12",
+    "distance": 39849.4,
+    "elevation_gain": 528.0,
+    "id": "20138812128",
+    "moving_time": 4174.0,
+    "name": "ROUVY - Alpine Panorama route | Stage 5 | S\u00f6renberg - Thun",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-09-12T07:44:27Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
