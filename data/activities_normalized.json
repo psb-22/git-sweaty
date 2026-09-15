@@ -28858,5 +28858,18 @@
     "start_date_local": "2026-09-13T10:27:37Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-09-15",
+    "distance": 1500.0,
+    "elevation_gain": 0.0,
+    "id": "20182616040",
+    "moving_time": 3252.0,
+    "name": "Poledn\u00ed plav\u00e1n\u00ed",
+    "raw_activity_type": "Swim",
+    "raw_type": "Swim",
+    "start_date_local": "2026-09-15T11:12:08Z",
+    "type": "Swim",
+    "year": 2026
   }
 ]
