@@ -28884,5 +28884,18 @@
     "start_date_local": "2026-09-19T12:14:20Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-09-20",
+    "distance": 40338.2,
+    "elevation_gain": 405.0,
+    "id": "20251290100",
+    "moving_time": 5494.0,
+    "name": "Zkusit zat\u00ed\u017eit koleno",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-09-20T09:54:33Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
