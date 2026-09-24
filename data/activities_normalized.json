@@ -28897,5 +28897,31 @@
     "start_date_local": "2026-09-20T09:54:33Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-09-24",
+    "distance": 18610.3,
+    "elevation_gain": 96.0,
+    "id": "20305763871",
+    "moving_time": 1362.0,
+    "name": "ROUVY - Pas de la Casa to Encamp | Spain",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-09-24T06:26:08Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-09-24",
+    "distance": 20340.1,
+    "elevation_gain": 212.0,
+    "id": "20308461151",
+    "moving_time": 2066.0,
+    "name": "ROUVY - La Vuelta 2023 | Stage 21 - Madrid Part 2",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-09-24T12:02:57Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
