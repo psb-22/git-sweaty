@@ -28923,5 +28923,44 @@
     "start_date_local": "2026-09-24T12:02:57Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-09-26",
+    "distance": 54900.8,
+    "elevation_gain": 862.0,
+    "id": "20332510506",
+    "moving_time": 6833.0,
+    "name": "ROUVY - Alpine Panorama route | Stage 6 | Thun - Fribourg",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-09-26T07:41:48Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-09-26",
+    "distance": 5460.6,
+    "elevation_gain": 6.0,
+    "id": "20332602053",
+    "moving_time": 420.0,
+    "name": "ROUVY - 7 Minute Cool-down",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-09-26T09:42:08Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-09-26",
+    "distance": 31956.2,
+    "elevation_gain": 267.0,
+    "id": "20336738468",
+    "moving_time": 6527.0,
+    "name": "Pohodov\u00e9 odpoledne s Pe\u0165kou",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-09-26T11:59:47Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
