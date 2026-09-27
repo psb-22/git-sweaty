@@ -28962,5 +28962,18 @@
     "start_date_local": "2026-09-26T11:59:47Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-09-27",
+    "distance": 31759.1,
+    "elevation_gain": 229.0,
+    "id": "20350922631",
+    "moving_time": 6083.0,
+    "name": "S Pe\u0165kou na kafe",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-09-27T12:00:52Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
