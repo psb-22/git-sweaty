@@ -28975,5 +28975,18 @@
     "start_date_local": "2026-09-27T12:00:52Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-09-28",
+    "distance": 2047.3,
+    "elevation_gain": 72.0,
+    "id": "20363708343",
+    "moving_time": 2030.0,
+    "name": "Proch\u00e1zka s holkama",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-09-28T13:27:42Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
