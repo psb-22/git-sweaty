@@ -29001,5 +29001,18 @@
     "start_date_local": "2026-09-30T17:24:50Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-10-01",
+    "distance": 22204.0,
+    "elevation_gain": 385.0,
+    "id": "20401987087",
+    "moving_time": 2908.0,
+    "name": "ROUVY - Alcossebre to Les Coves de Vinrom\u00e0 | Spain",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-10-01T05:54:01Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
