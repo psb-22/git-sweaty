@@ -29014,5 +29014,18 @@
     "start_date_local": "2026-10-01T05:54:01Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-10-02",
+    "distance": 47828.9,
+    "elevation_gain": 627.0,
+    "id": "20422346139",
+    "moving_time": 6943.0,
+    "name": "Na zmrzku",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-10-02T15:58:12Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
