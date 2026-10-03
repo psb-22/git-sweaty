@@ -29027,5 +29027,18 @@
     "start_date_local": "2026-10-02T15:58:12Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-10-03",
+    "distance": 30896.7,
+    "elevation_gain": 543.0,
+    "id": "20433715238",
+    "moving_time": 7103.0,
+    "name": "Gastro ride s Pe\u0165kou",
+    "raw_activity_type": "Ride",
+    "raw_type": "MountainBikeRide",
+    "start_date_local": "2026-10-03T12:17:46Z",
+    "type": "MountainBikeRide",
+    "year": 2026
   }
 ]
