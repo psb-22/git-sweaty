@@ -29040,5 +29040,18 @@
     "start_date_local": "2026-10-03T12:17:46Z",
     "type": "MountainBikeRide",
     "year": 2026
+  },
+  {
+    "date": "2026-10-04",
+    "distance": 50815.6,
+    "elevation_gain": 689.0,
+    "id": "20446833933",
+    "moving_time": 7449.0,
+    "name": "Na ob\u011bd",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-10-04T11:35:02Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
