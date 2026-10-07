@@ -29066,5 +29066,18 @@
     "start_date_local": "2026-10-06T11:57:59Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-10-07",
+    "distance": 27591.0,
+    "elevation_gain": 331.0,
+    "id": "20490818400",
+    "moving_time": 4534.0,
+    "name": "Stylov\u00fd z\u00e1v\u011br outdoor sez\u00f3ny -  dva defekty",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-10-07T16:13:45Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
