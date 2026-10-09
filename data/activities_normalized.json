@@ -29079,5 +29079,18 @@
     "start_date_local": "2026-10-07T16:13:45Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-10-09",
+    "distance": 2919.2,
+    "elevation_gain": 67.0,
+    "id": "20516671261",
+    "moving_time": 2396.0,
+    "name": "K volb\u00e1m",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-10-09T16:47:29Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
