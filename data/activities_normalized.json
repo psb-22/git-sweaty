@@ -29118,5 +29118,18 @@
     "start_date_local": "2026-10-10T08:08:53Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-10-11",
+    "distance": 40197.8,
+    "elevation_gain": 401.0,
+    "id": "20542350864",
+    "moving_time": 5654.0,
+    "name": "Podzimn\u00ed odpoledne",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-10-11T14:06:51Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
