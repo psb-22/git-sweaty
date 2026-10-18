@@ -29131,5 +29131,31 @@
     "start_date_local": "2026-10-11T14:06:51Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-10-18",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "20629557426",
+    "moving_time": 2178.0,
+    "name": "Sauna",
+    "raw_activity_type": "Workout",
+    "raw_type": "Workout",
+    "start_date_local": "2026-10-18T06:36:31Z",
+    "type": "Workout",
+    "year": 2026
+  },
+  {
+    "date": "2026-10-18",
+    "distance": 23255.8,
+    "elevation_gain": 213.0,
+    "id": "20634818317",
+    "moving_time": 3369.0,
+    "name": "N\u00e1dhern\u00e9 po\u010das\u00ed, ale zase defekt....",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-10-18T13:16:45Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
