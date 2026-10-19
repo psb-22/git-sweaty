@@ -29157,5 +29157,18 @@
     "start_date_local": "2026-10-18T13:16:45Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-10-19",
+    "distance": 24011.5,
+    "elevation_gain": 29.0,
+    "id": "20648107760",
+    "moving_time": 2252.0,
+    "name": "ROUVY - Torreira | Portugal",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-10-19T16:19:27Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
