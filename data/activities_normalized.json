@@ -29196,5 +29196,18 @@
     "start_date_local": "2026-10-22T12:32:19Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-10-24",
+    "distance": 2708.0,
+    "elevation_gain": 44.0,
+    "id": "20711532630",
+    "moving_time": 2484.0,
+    "name": "S Pe\u0165kou na zmrzku",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-10-24T12:38:45Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
