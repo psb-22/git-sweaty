@@ -29209,5 +29209,31 @@
     "start_date_local": "2026-10-24T12:38:45Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-10-25",
+    "distance": 29099.3,
+    "elevation_gain": 118.0,
+    "id": "20721025749",
+    "moving_time": 2207.0,
+    "name": "ROUVY - St. Mary Downhill | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-10-25T07:44:09Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-10-25",
+    "distance": 18558.3,
+    "elevation_gain": 15.0,
+    "id": "20721140104",
+    "moving_time": 975.0,
+    "name": "ROUVY - Lake Mc Donald Downhill | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-10-25T08:24:21Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
