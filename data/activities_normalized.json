@@ -29235,5 +29235,44 @@
     "start_date_local": "2026-10-25T08:24:21Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-10-26",
+    "distance": 27036.6,
+    "elevation_gain": 175.0,
+    "id": "20733721018",
+    "moving_time": 2225.0,
+    "name": "ROUVY - Whitefish | Great Divide | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-10-26T07:18:16Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-10-26",
+    "distance": 5459.6,
+    "elevation_gain": 6.0,
+    "id": "20733789334",
+    "moving_time": 420.0,
+    "name": "ROUVY - 7 Minute Cool-down",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-10-26T07:56:27Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-10-26",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "20736732890",
+    "moving_time": 6987.0,
+    "name": "Sauna",
+    "raw_activity_type": "Workout",
+    "raw_type": "Workout",
+    "start_date_local": "2026-10-26T10:02:55Z",
+    "type": "Workout",
+    "year": 2026
   }
 ]
