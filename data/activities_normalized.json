@@ -29274,5 +29274,31 @@
     "start_date_local": "2026-10-26T10:02:55Z",
     "type": "Workout",
     "year": 2026
+  },
+  {
+    "date": "2026-10-28",
+    "distance": 22816.4,
+    "elevation_gain": 176.0,
+    "id": "20760752937",
+    "moving_time": 2067.0,
+    "name": "ROUVY - Columbia Falls | Great Divide | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-10-28T06:55:24Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-10-28",
+    "distance": 17250.4,
+    "elevation_gain": 107.0,
+    "id": "20761011741",
+    "moving_time": 1447.0,
+    "name": "ROUVY - The Rad Dirt Fest | Burdo Canyon | Colorado",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-10-28T07:44:28Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
