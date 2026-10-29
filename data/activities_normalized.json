@@ -29300,5 +29300,18 @@
     "start_date_local": "2026-10-28T07:44:28Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-10-29",
+    "distance": 31210.2,
+    "elevation_gain": 351.0,
+    "id": "20777874337",
+    "moving_time": 4700.0,
+    "name": "V poledn\u00ed pauze",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-10-29T12:06:56Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
