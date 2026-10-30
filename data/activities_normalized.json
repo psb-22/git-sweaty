@@ -29313,5 +29313,18 @@
     "start_date_local": "2026-10-29T12:06:56Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-10-30",
+    "distance": 92824.2,
+    "elevation_gain": 711.0,
+    "id": "20792919402",
+    "moving_time": 12779.0,
+    "name": "Do skl\u00edpku za kolegy",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-10-30T13:07:43Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
