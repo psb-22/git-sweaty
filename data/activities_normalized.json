@@ -29326,5 +29326,18 @@
     "start_date_local": "2026-10-30T13:07:43Z",
     "type": "Ride",
     "year": 2026
+  },
+  {
+    "date": "2026-10-31",
+    "distance": 8222.0,
+    "elevation_gain": 55.0,
+    "id": "20803791387",
+    "moving_time": 6231.0,
+    "name": "Brunch a trdelnik",
+    "raw_activity_type": "Walk",
+    "raw_type": "Walk",
+    "start_date_local": "2026-10-31T10:12:12Z",
+    "type": "Walk",
+    "year": 2026
   }
 ]
