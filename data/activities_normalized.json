@@ -29339,5 +29339,31 @@
     "start_date_local": "2026-10-31T10:12:12Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-11-02",
+    "distance": 13882.3,
+    "elevation_gain": 163.0,
+    "id": "20827536573",
+    "moving_time": 1312.0,
+    "name": "ROUVY - Halloween 2026 | Ambleside | UK",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-02T12:02:42Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-02",
+    "distance": 18371.3,
+    "elevation_gain": 242.0,
+    "id": "20827970157",
+    "moving_time": 1929.0,
+    "name": "ROUVY - Halloween 2026 | Eskdale Green | UK",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-02T12:28:30Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
