@@ -29378,5 +29378,44 @@
     "start_date_local": "2026-11-05T12:03:18Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-11-08",
+    "distance": 19980.6,
+    "elevation_gain": 364.0,
+    "id": "20904139638",
+    "moving_time": 2892.0,
+    "name": "ROUVY - Butte | Great Divide | Montana",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-08T08:54:44Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-08",
+    "distance": 31388.7,
+    "elevation_gain": 478.0,
+    "id": "20905045772",
+    "moving_time": 3749.0,
+    "name": "ROUVY - Big Sugar | Pineville | Missouri",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-08T09:56:04Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-08",
+    "distance": 5459.9,
+    "elevation_gain": 6.0,
+    "id": "20905185011",
+    "moving_time": 420.0,
+    "name": "ROUVY - 7 Minute Cool-down",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-08T10:59:44Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
