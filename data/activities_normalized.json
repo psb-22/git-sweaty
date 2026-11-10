@@ -29430,5 +29430,18 @@
     "start_date_local": "2026-11-09T16:14:26Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-11-10",
+    "distance": 18244.8,
+    "elevation_gain": 160.0,
+    "id": "20929021121",
+    "moving_time": 1996.0,
+    "name": "ROUVY - Taghazout | Morocco",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-10T06:35:14Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
