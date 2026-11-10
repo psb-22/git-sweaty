@@ -29417,5 +29417,18 @@
     "start_date_local": "2026-11-08T10:59:44Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-11-09",
+    "distance": 13802.5,
+    "elevation_gain": 190.0,
+    "id": "20921404570",
+    "moving_time": 1583.0,
+    "name": "ROUVY - Douar Agdour | Morocco",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-09T16:14:26Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
