@@ -29482,5 +29482,44 @@
     "start_date_local": "2026-11-14T11:49:10Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-11-15",
+    "distance": 33410.4,
+    "elevation_gain": 238.0,
+    "id": "20992971580",
+    "moving_time": 2833.0,
+    "name": "ROUVY - Indus valley | india",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-15T08:11:25Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-15",
+    "distance": 18100.2,
+    "elevation_gain": 381.0,
+    "id": "20993334609",
+    "moving_time": 2483.0,
+    "name": "ROUVY - Ait Benhaddou | Morocco",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-15T09:09:19Z",
+    "type": "VirtualRide",
+    "year": 2026
+  },
+  {
+    "date": "2026-11-15",
+    "distance": 5460.0,
+    "elevation_gain": 6.0,
+    "id": "20993409197",
+    "moving_time": 420.0,
+    "name": "ROUVY - 7 Minute Cool-down",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-15T09:51:29Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
