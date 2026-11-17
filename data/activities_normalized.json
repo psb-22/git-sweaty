@@ -29521,5 +29521,18 @@
     "start_date_local": "2026-11-15T09:51:29Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-11-17",
+    "distance": 34360.2,
+    "elevation_gain": 255.0,
+    "id": "21018151025",
+    "moving_time": 3254.0,
+    "name": "ROUVY - Hanle | India",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-17T08:07:53Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
