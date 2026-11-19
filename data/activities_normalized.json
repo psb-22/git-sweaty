@@ -29534,5 +29534,18 @@
     "start_date_local": "2026-11-17T08:07:53Z",
     "type": "VirtualRide",
     "year": 2026
+  },
+  {
+    "date": "2026-11-19",
+    "distance": 20897.6,
+    "elevation_gain": 106.0,
+    "id": "21048696719",
+    "moving_time": 2400.0,
+    "name": "ROUVY - Z2 vytrvalost 40 min (kadence 85\u201395) - 2026-11-19",
+    "raw_activity_type": "VirtualRide",
+    "raw_type": "VirtualRide",
+    "start_date_local": "2026-11-19T17:07:38Z",
+    "type": "VirtualRide",
+    "year": 2026
   }
 ]
