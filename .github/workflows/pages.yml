@@ -28,7 +28,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
@@ -107,6 +107,12 @@ jobs:
         with:
           path: site
 
+  # Samostatny job: deploy-pages obcas nevidi artefakt nahrany o zlomek vteriny
+  # drive (actions/deploy-pages#451). Start noveho runneru mu da cas.
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v5
