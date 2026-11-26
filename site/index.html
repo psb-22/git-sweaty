@@ -115,7 +115,9 @@
     };
 
     const typeName = type => TYPE_NAMES[type] || type;
-    const typeColor = type => allData.type_meta[type]?.accent || '#6b7280';
+    // Vlastní barvy místo těch z dat: elektrokolo mělo stejnou žlutou jako virtuální jízda
+    const COLOR_OVERRIDES = { EBikeRide: '#ef4444' };
+    const typeColor = type => COLOR_OVERRIDES[type] || allData.type_meta[type]?.accent || '#6b7280';
     const formatNumber = value => Math.round(value).toLocaleString('cs-CZ');
     const plural = (n, one, few, many) => n === 1 ? one : (n >= 2 && n <= 4 ? few : many);
 
@@ -279,7 +281,7 @@
 
       const typeContainer = document.getElementById('typeFilter');
       typeContainer.innerHTML = allData.types.map(type => {
-        const color = allData.type_meta[type]?.accent || '#6b7280';
+        const color = typeColor(type);
         const isSelected = selectedTypes.has(type);
         return `
           <button class="type-btn px-2 py-1 rounded text-xs font-medium transition flex items-center gap-1"
