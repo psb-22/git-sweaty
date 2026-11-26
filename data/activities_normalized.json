@@ -29586,5 +29586,18 @@
     "start_date_local": "2026-11-22T13:06:33Z",
     "type": "Walk",
     "year": 2026
+  },
+  {
+    "date": "2026-11-25",
+    "distance": 17394.6,
+    "elevation_gain": 0.0,
+    "id": "21118771802",
+    "moving_time": 2414.0,
+    "name": "Bez prav\u00e9 ruky, den 1.",
+    "raw_activity_type": "Ride",
+    "raw_type": "Ride",
+    "start_date_local": "2026-11-25T12:22:35Z",
+    "type": "Ride",
+    "year": 2026
   }
 ]
