@@ -28,8 +28,11 @@ class SummaryResponsiveContractTests(unittest.TestCase):
         self.assertLessEqual({"grid", "grid-cols-1", "md:grid-cols-3"}, self._classes_of("extraMetrics"))
 
     def test_filters_and_charts_stack_on_mobile(self) -> None:
-        self.assertIn('class="grid grid-cols-1 md:grid-cols-3 gap-6"', self.html)
+        self.assertIn('class="grid grid-cols-1 md:grid-cols-4 gap-6"', self.html)
         self.assertIn('class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"', self.html)
+
+    def test_heatmap_scrolls_inside_its_own_box(self) -> None:
+        self.assertIn('class="overflow-x-auto pb-2 mb-8"', self.html)
 
 
 if __name__ == "__main__":

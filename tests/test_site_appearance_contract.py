@@ -46,7 +46,11 @@ class SiteAppearanceContractTests(unittest.TestCase):
             "everestCount",
             "yearFilter",
             "typeFilter",
-            "toggleDaysBtn",
+            "showAllBtn",
+            "showActiveBtn",
+            "goalContainer",
+            "legendContainer",
+            "updatedAt",
             "resetBtn",
             "statsContainer",
             "extraMetrics",
@@ -60,17 +64,17 @@ class SiteAppearanceContractTests(unittest.TestCase):
         self.assertNotIn("app.js", self.html)
 
     def test_heatmap_uses_czech_months_and_weekday_rows(self) -> None:
-        # Seznam měsíců je na dvou místech a oba se musí shodovat.
-        self.assertIn(f"const months = {js_list(MONTHS)};", self.html)
-        self.assertIn(f"const monthOrder = {js_list(MONTHS)};", self.html)
-        self.assertIn(f"{js_list(WEEKDAYS)}.map(dayName", self.html)
+        self.assertIn(f"const MONTHS = {js_list(MONTHS)};", self.html)
+        self.assertIn(f"const WEEKDAYS = {js_list(WEEKDAYS)};", self.html)
+        # Sloupec je týden, řádek den v týdnu.
+        self.assertIn("grid-auto-flow: column; grid-template-rows: repeat(7, 14px);", self.html)
 
     def test_default_filter_is_cycling_and_goal_is_set(self) -> None:
         self.assertIn(
             js_list(["Ride", "VirtualRide", "GravelRide", "MountainBikeRide", "EBikeRide"]),
             self.html,
         )
-        self.assertIn("const goalDist = 8000;", self.html)
+        self.assertIn("const GOALS = { 2026: 8000, 2027: 8088 };", self.html)
         self.assertIn("Měl bych mít", self.html)
 
     def test_totals_are_summed_from_aggregates(self) -> None:
@@ -80,7 +84,7 @@ class SiteAppearanceContractTests(unittest.TestCase):
         self.assertIn("sumAggregates(selectedYears, selectedTypes).distance", self.html)
 
     def test_action_buttons_do_not_stack_listeners(self) -> None:
-        for button_id in ("resetBtn", "toggleDaysBtn"):
+        for button_id in ("resetBtn", "showAllBtn", "showActiveBtn"):
             self.assertIn(f"getElementById('{button_id}').onclick =", self.html)
             self.assertNotIn(f"getElementById('{button_id}').addEventListener", self.html)
 
