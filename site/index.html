@@ -34,15 +34,15 @@
     <aside class="mb-8 p-4 bg-teal-900 rounded-lg border border-teal-700">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
-          <h3 class="text-sm font-semibold text-slate-200 uppercase mb-3">Roky</h3>
+          <h2 class="text-sm font-semibold text-slate-200 uppercase mb-3">Roky</h2>
           <div id="yearFilter" class="flex flex-wrap gap-2"></div>
         </div>
         <div>
-          <h3 class="text-sm font-semibold text-slate-200 uppercase mb-3">Aktivita</h3>
+          <h2 class="text-sm font-semibold text-slate-200 uppercase mb-3">Aktivita</h2>
           <div id="typeFilter" class="flex flex-wrap gap-2 max-h-32 overflow-y-auto"></div>
         </div>
         <div>
-          <h3 class="text-sm font-semibold text-slate-200 uppercase mb-3">Akce</h3>
+          <h2 class="text-sm font-semibold text-slate-200 uppercase mb-3">Akce</h2>
           <div class="flex flex-col gap-2">
             <button id="toggleDaysBtn" class="px-4 py-2 bg-teal-700 text-slate-200 rounded hover:bg-teal-600 text-sm font-medium">
               Všechny dny
@@ -64,12 +64,12 @@
     <!-- GRAFY -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
       <div class="bg-teal-900 rounded-lg border border-teal-700 p-4">
-        <h3 class="text-sm font-semibold text-slate-200 uppercase mb-4">📅 Aktivní dny dle měsíce</h3>
+        <h2 class="text-sm font-semibold text-slate-200 uppercase mb-4">📅 Aktivní dny dle měsíce</h2>
         <div id="monthBarChart" style="height:88px;display:flex;align-items:flex-end;gap:4px;"></div>
         <div id="monthLabels" style="display:flex;gap:4px;margin-top:4px;"></div>
       </div>
       <div class="bg-teal-900 rounded-lg border border-teal-700 p-4">
-        <h3 class="text-sm font-semibold text-slate-200 uppercase mb-4">📆 Aktivní dny dle dne v týdnu</h3>
+        <h2 class="text-sm font-semibold text-slate-200 uppercase mb-4">📆 Aktivní dny dle dne v týdnu</h2>
         <div id="weekdayBarChart" style="height:88px;display:flex;align-items:flex-end;gap:4px;"></div>
         <div id="weekdayLabels" style="display:flex;gap:4px;margin-top:4px;"></div>
       </div>
@@ -105,14 +105,28 @@
       renderEverestBadge();
     }
 
-    function renderEverestBadge() {
-      let totalElev = 0;
-      allData.activities.forEach(act => {
-        const agg = allData.aggregates[String(act.year)]?.[act.type]?.[act.date];
-        if (agg) totalElev += agg.elevation_gain || 0;
+    // Agregát je po dni a typu, proto se sčítá přímo přes aggregates, ne přes activities
+    function sumAggregates(years, types) {
+      const total = { count: 0, distance: 0, elevation_gain: 0, moving_time: 0 };
+      years.forEach(year => {
+        Object.entries(allData.aggregates[String(year)] || {}).forEach(([type, dates]) => {
+          if (!types.has(type)) return;
+          Object.values(dates).forEach(day => {
+            Object.keys(total).forEach(key => total[key] += day[key] || 0);
+          });
+        });
       });
+      return total;
+    }
+
+    function formatDecimal(value) {
+      return value.toLocaleString('cs-CZ', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    }
+
+    function renderEverestBadge() {
+      const totalElev = sumAggregates(allData.years, new Set(allData.types)).elevation_gain;
       document.getElementById('totalElevAll').textContent = Math.round(totalElev).toLocaleString('cs-CZ') + ' m';
-      document.getElementById('everestCount').textContent = (totalElev / 8849).toFixed(1) + '× výstup na Everest';
+      document.getElementById('everestCount').textContent = Math.round(totalElev / 8849).toLocaleString('cs-CZ') + '× výstup na Everest';
     }
 
     function renderFilters() {
@@ -156,21 +170,21 @@
         });
       });
 
-      document.getElementById('resetBtn').addEventListener('click', () => {
+      document.getElementById('resetBtn').onclick = () => {
         selectedYears = new Set(allData.years);
         const cyclingActivities = ['Ride', 'VirtualRide', 'GravelRide', 'MountainBikeRide', 'EBikeRide'];
         selectedTypes = new Set(allData.types.filter(t => cyclingActivities.includes(t)));
         renderFilters();
         render();
-      });
+      };
 
-      document.getElementById('toggleDaysBtn').addEventListener('click', () => {
+      document.getElementById('toggleDaysBtn').onclick = () => {
         showAllDays = !showAllDays;
         const btn = document.getElementById('toggleDaysBtn');
         btn.textContent = showAllDays ? 'Všechny dny' : 'Dny s aktivitou';
         btn.style.backgroundColor = showAllDays ? '#334155' : '#1e293b';
         render();
-      });
+      };
     }
 
     function render() {
@@ -181,32 +195,15 @@
     }
 
     function renderStats() {
-      const stats = { activities: 0, days: 0, distance: 0, time: 0 };
-      
-      allData.activities.forEach(act => {
-        if (selectedYears.has(act.year) && selectedTypes.has(act.type)) {
-          stats.activities++;
-          stats.days = Math.max(stats.days, new Date(act.date).getDate());
-        }
-      });
+      const activityCount = allData.activities.filter(a => selectedYears.has(a.year) && selectedTypes.has(a.type)).length;
+      const totalDistance = sumAggregates(selectedYears, selectedTypes).distance;
 
       const container = document.getElementById('statsContainer');
-      
-      // Spočítej celkové km
-      let totalKm = 0;
-      allData.activities.forEach(act => {
-        if (selectedYears.has(act.year) && selectedTypes.has(act.type)) {
-          const agg = allData.aggregates[String(act.year)]?.[act.type]?.[act.date];
-          if (agg?.distance) {
-            totalKm += agg.distance;
-          }
-        }
-      });
-      
+
       container.innerHTML = `
         <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
           <p class="text-slate-200 text-xs uppercase mb-1">Aktivity</p>
-          <p class="text-3xl font-bold text-cyan-400">${stats.activities.toLocaleString('cs-CZ')}</p>
+          <p class="text-3xl font-bold text-cyan-400">${activityCount.toLocaleString('cs-CZ')}</p>
         </div>
         <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
           <p class="text-slate-200 text-xs uppercase mb-1">Aktivní dny</p>
@@ -222,7 +219,7 @@
         </div>
         <div class="bg-teal-900 p-4 rounded-lg border border-teal-700">
           <p class="text-slate-200 text-xs uppercase mb-1">Km</p>
-          <p class="text-3xl font-bold text-cyan-400">${Math.round(totalKm / 1000).toLocaleString('cs-CZ')}</p>
+          <p class="text-3xl font-bold text-cyan-400">${Math.round(totalDistance / 1000).toLocaleString('cs-CZ')}</p>
         </div>
       `;
     }
@@ -275,16 +272,9 @@
       const diffSign = diff >= 0 ? '+' : '';
 
       // 3) PRŮMĚR NA AKTIVITU
-      let totalDist = 0, totalElev = 0, totalTime = 0, actCount = 0;
-      const seenActs = new Set();
-      filteredActs.forEach(act => {
-        const key = act.year + '-' + act.type + '-' + act.date;
-        if (seenActs.has(key)) return;
-        seenActs.add(key);
-        const agg = allData.aggregates[String(act.year)]?.[act.type]?.[act.date];
-        if (agg) { totalDist += agg.distance || 0; totalElev += agg.elevation_gain || 0; totalTime += agg.moving_time || 0; actCount++; }
-      });
-      const avgKm = actCount > 0 ? (totalDist / actCount / 1000).toFixed(1) : '—';
+      const { count: actCount, distance: totalDist, elevation_gain: totalElev, moving_time: totalTime } =
+        sumAggregates(selectedYears, selectedTypes);
+      const avgKm = actCount > 0 ? formatDecimal(totalDist / actCount / 1000) : '—';
       const avgElev = actCount > 0 ? Math.round(totalElev / actCount).toLocaleString('cs-CZ') : '—';
       const avgMin = actCount > 0 ? Math.round(totalTime / actCount / 60) : '—';
 
@@ -312,10 +302,13 @@
     function renderCharts() {
       const chartH = 88;
       const monthNames = ['Led','Úno','Bře','Dub','Kvě','Čer','Čvc','Srp','Zář','Říj','Lis','Pro'];
+      const activeDates = [...new Set(allData.activities
+        .filter(a => selectedYears.has(a.year) && selectedTypes.has(a.type))
+        .map(a => a.date))];
+
       const monthCounts = new Array(12).fill(0);
-      allData.activities.forEach(act => {
-        if (!selectedYears.has(act.year) || !selectedTypes.has(act.type)) return;
-        const m = parseInt(act.date.substring(5, 7)) - 1;
+      activeDates.forEach(date => {
+        const m = parseInt(date.substring(5, 7)) - 1;
         monthCounts[m]++;
       });
       const maxMonth = Math.max(...monthCounts, 1);
@@ -332,9 +325,8 @@
       const dayNames = ['Po','Út','St','Čt','Pá','So','Ne'];
       const dayJsValues = [1, 2, 3, 4, 5, 6, 0];
       const dayCounts = new Array(7).fill(0);
-      allData.activities.forEach(act => {
-        if (!selectedYears.has(act.year) || !selectedTypes.has(act.type)) return;
-        const d = new Date(act.date + 'T00:00:00Z').getDay();
+      activeDates.forEach(date => {
+        const d = new Date(date + 'T00:00:00Z').getUTCDay();
         const idx = dayJsValues.indexOf(d);
         if (idx >= 0) dayCounts[idx]++;
       });
@@ -403,7 +395,7 @@
           const currentDist = totalDistance / 1000;
           const remaining = Math.max(0, goalDist - currentDist);
           const daysLeft = Math.ceil((new Date(`${year}-12-31`) - new Date()) / 86400000);
-          const dailyNeeded = (remaining / daysLeft).toFixed(1);
+          const dailyNeeded = formatDecimal(remaining / daysLeft);
           const percentage = Math.min((currentDist / goalDist) * 100, 100).toFixed(0);
 
           // Průběžný cíl
@@ -510,6 +502,7 @@
                           const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
                           for (let day = 1; day <= daysInMonth; day++) {
                             const dateObj = new Date(year, monthIndex, day);
+                            if (dateObj > new Date()) break;
                             if (dateObj.getDay() === (dayIndex + 1) % 7) { // Adjust for Sunday = 0
                               const dateStr = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
                               const dayData = dayMap[dateStr];
